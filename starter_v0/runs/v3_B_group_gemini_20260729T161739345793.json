@@ -1,0 +1,770 @@
+{
+  "run_id": "v3_B_group_gemini_20260729T161739345793",
+  "version": "v3",
+  "artifact_version": "v3+p7503a7cbfa99+tb814d6b20f72",
+  "prompt_hash": "7503a7cbfa99b8994571b0081fba1e5fe01502e648ebe4a8d8e8a0e8144bfa06",
+  "tools_hash": "b814d6b20f72ce30924400bb2ddc672420ec415862794e67cfb4335bcee65e14",
+  "phase": "B",
+  "suite": "group",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "system_prompt": "D:\\AI intensive course\\DAY04_G26_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\AI intensive course\\DAY04_G26_E403\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Bộ eval do nhóm tự viết: 5 case single-turn và 5 case multi-turn để kiểm tra routing, trích xuất tham số, ranh giới hành động, và tool source_check của nhóm.",
+  "generated_at": "2026-07-29T16:17:39",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 10,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
+    "multiturn_accuracy": 1.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "G01_source_check_urls",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Khi người dùng đưa URL và hỏi về độ tin cậy/trích dẫn, agent phải route sang tool source_check của nhóm."
+      },
+      "input": "Kiểm tra nhanh 2 nguồn này có ổn để trích dẫn không: https://openai.com/research và https://medium.com/example/ai-notes",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_check",
+            "args": {
+              "sources": [
+                "https://openai.com/research",
+                "https://medium.com/example/ai-notes"
+              ]
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "source_check",
+            "args": {
+              "sources": [
+                "https://openai.com/research",
+                "https://medium.com/example/ai-notes"
+              ]
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "source_check",
+          "args": {
+            "sources": [
+              "https://openai.com/research",
+              "https://medium.com/example/ai-notes"
+            ]
+          },
+          "result": {
+            "tool": "source_check",
+            "claim": "",
+            "purpose": "research",
+            "source_count": 2,
+            "items": [
+              {
+                "source": "https://openai.com/research",
+                "domain": "openai.com",
+                "trust_level": "high",
+                "reasons": [
+                  "recognized primary, academic, company, or institutional domain"
+                ]
+              },
+              {
+                "source": "https://medium.com/example/ai-notes",
+                "domain": "medium.com",
+                "trust_level": "medium",
+                "reasons": [
+                  "platform or user-generated content; verify with primary sources"
+                ]
+              }
+            ],
+            "recommendation": "use_with_citation",
+            "guardrail": "This is a heuristic source-quality screen, not a factual verification result."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_fetch_specific_url",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Khi có URL cụ thể, agent phải dùng fetch, không dùng lookup hoặc source_check."
+      },
+      "input": "Đọc và tóm tắt link này: https://example.com/ai-policy",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://example.com/ai-policy"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://example.com/ai-policy"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://example.com/ai-policy"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://example.com/ai-policy",
+            "items": [
+              {
+                "title": "Example Domain",
+                "url": "https://example.com/ai-policy",
+                "source": "example.com",
+                "summary": "# Example Domain\n\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\n\n[Learn more](https://iana.org/domains/example)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_web_news_month",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Yêu cầu tin tức hiện tại phải map sang lookup với topic=news và timeframe=month."
+      },
+      "input": "Tin về AI agents trong tháng này có gì mới?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI agents",
+              "topic": "news",
+              "timeframe": "month"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI agents",
+              "topic": "news",
+              "timeframe": "month"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI agents",
+            "topic": "news",
+            "timeframe": "month"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI agents",
+            "topic": "news",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "The Agentic Enterprise Has a Privilege Problem - Dark Reading",
+                "url": "https://www.darkreading.com/vulnerabilities-threats/the-agentic-enterprise-has-a-privilege-problem",
+                "source": "darkreading.com",
+                "summary": "AI agents demand dynamic identity security as they evolve into autonomous systems, challenging static controls and trust assumptions. For decades, enterprise identity security relied on a simple model: Authenticate a user, grant access, and trust that access until it is reviewed. AI agents are rapidly becoming a new operational layer of the enterprise. What began as copilots and assistants is evolving into autonomous systems capable of retrieving data, executing workflows, interacting across applications, and making decisions with little or no human involvement. The challenge is that AI agents operate continuously while most identity controls remain static. As organizations grant more authority to non-human identities, long-standing assumptions about trust, access, and privilege are being put to the test — and many organizations are discovering they are not prepared for the risks that follow. To perform these tasks efficiently, they are often granted broad access to applications, data, and APIs, sometimes exceeding the level of access a human user would receive for the same task.",
+                "score": 0.8358192
+              },
+              {
+                "title": "How To Get Your Business Data Ready For AI Agents - Forbes",
+                "url": "https://www.forbes.com/sites/bernardmarr/2026/07/27/how-to-get-your-business-data-ready-for-ai-agents/",
+                "source": "forbes.com",
+                "summary": "# How To Get Your Business Data Ready For AI Agents. AI agents are revolutionizing business automation, but their effectiveness hinges on high-quality, accessible, and well-governed data. Inadequate data management is projected to cause 60% of AI project failures, with autonomous agents posing even greater risks as errors can spread rapidly. Key steps include mapping data assets, establishing clear governance for access and accountability, ensuring data quality, and improving accessibility by breaking down silos and utilizing APIs. Preparing data now is crucial for scaling AI, identifying use cases, and avoiding regulatory hurdles, transforming agents into a genuine source of value. AI agents are ushering in a new era of business automation, completing tasks, making decisions and taking action with far less human intervention. This means knowing who is responsible for data as well as which humans or agents can access it, what’s off-limits to agents, and where there’s need for human oversight.",
+                "score": 0.83093774
+              },
+              {
+                "title": "The Agentic Enterprise Has a Privilege Problem - Dark Reading",
+                "url": "https://www.darkreading.com/identity-access-management-security/the-agentic-enterprise-has-a-privilege-problem",
+                "source": "darkreading.com",
+                "summary": "AI agents demand dynamic identity security as they evolve into autonomous systems, challenging static controls and trust assumptions. For decades, enterprise identity security relied on a simple model: Authenticate a user, grant access, and trust that access until it is reviewed. AI agents are rapidly becoming a new operational layer of the enterprise. What began as copilots and assistants is evolving into autonomous systems capable of retrieving data, executing workflows, interacting across applications, and making decisions with little or no human involvement. The challenge is that AI agents operate continuously while most identity controls remain static. As organizations grant more authority to non-human identities, long-standing assumptions about trust, access, and privilege are being put to the test — and many organizations are discovering they are not prepared for the risks that follow. To perform these tasks efficiently, they are often granted broad access to applications, data, and APIs, sometimes exceeding the level of access a human user would receive for the same task.",
+                "score": 0.8190992
+              },
+              {
+                "title": "Emerson Expands Ovation AI Portfolio with New Intelligent Agents - Automation World",
+                "url": "https://www.automationworld.com/analytics/news/55394179/emerson-expands-ovation-ai-portfolio-with-new-intelligent-agents",
+                "source": "automationworld.com",
+                "summary": "# Emerson Expands Ovation AI Portfolio with New Intelligent Agents. The new Ovation AI Agents enable operators to resolve issues more swiftly, according to the company. Emerson introduced new Ovation AI Agents for the power and water industries, expanding the AI capabilities of its Ovation Automation Platform 4.0 release with five new agents. The new release includes a Sequence Assistant Agent; Alarm Insight Agent; Predictive Maintenance Agent; Root Cause Agent and Loop Performance Monitor Agent. This expansion builds on the success of Ovation Virtual Advisor and delivers new capabilities to Ovation’s growing portfolio of AI solutions for the power and water industry. While Ovation Virtual Advisor provides real-time, AI-driven insights through natural language interaction, the new AI Agents are time synchronized with the Ovation 4.0 system and work autonomously in the background, continuously monitoring plant and equipment conditions and recommending optimizations.",
+                "score": 0.8003337
+              },
+              {
+                "title": "AI Agents Are a New Kind of Identity & Most Orgs Aren't Ready - Dark Reading",
+                "url": "https://www.darkreading.com/identity-access-management-security/ai-agents-new-kind-identity-most-organizations-not-ready",
+                "source": "darkreading.com",
+                "summary": "# AI Agents Are a New Kind of Identity & Most Organizations Aren't Ready. AI agents need a fundamentally different approach. It is one of the clearest things I have read on this topic, but it also made me think about something that I want to dig into further because it's the most important factor in enterprise security right now, and it's not getting the attention it deserves: the development environment. Thiemann makes a point that I have been making for a while now, and it's worth repeating loudly: AI agents are not just another type of non-human identity. If you're still treating them like a service account or an API token, you are already behind. They all have one thing in common: You tell them what to do, and they do it. That is not a variation of the service account problem; it's a fundamentally different class of risk.",
+                "score": 0.79119295
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G04_missing_account",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Khi người dùng nhắc tài khoản mơ hồ, agent phải hỏi lại thay vì đoán handle."
+      },
+      "input": "Lấy 3 bài đăng mới nhất của tài khoản đó giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text",
+              "question": "Bạn muốn xem bài đăng mới nhất từ tài khoản X (Twitter) nào? Vui lòng cho mình biết tên tài khoản hoặc handle (ví dụ: sama, elonmusk, karpathy)."
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "response_type": "text",
+            "question": "Bạn muốn xem bài đăng mới nhất từ tài khoản X (Twitter) nào? Vui lòng cho mình biết tên tài khoản hoặc handle (ví dụ: sama, elonmusk, karpathy)."
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn muốn xem bài đăng mới nhất từ tài khoản X (Twitter) nào? Vui lòng cho mình biết tên tài khoản hoặc handle (ví dụ: sama, elonmusk, karpathy).",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G05_confirm_publish",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Hành động ghi/gửi ra ngoài phải hỏi xác nhận yes/no trước khi gửi."
+      },
+      "input": "Gửi bản tóm tắt này lên Telegram cho nhóm: AI đang tăng trưởng rất nhanh",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no",
+              "question": "Bạn có muốn gửi bản tóm tắt này lên Telegram không?"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "response_type": "yes_no",
+            "question": "Bạn có muốn gửi bản tóm tắt này lên Telegram không?"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn gửi bản tóm tắt này lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G06_multiturn_source_check",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Agent phải giữ URL từ các lượt trước và route sang source_check."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mình có 2 nguồn cần đánh giá cho claim về GPT-5."
+        },
+        {
+          "role": "user",
+          "content": "Nguồn là https://openai.com/research và https://reddit.com/r/artificial/post/123"
+        },
+        {
+          "role": "user",
+          "content": "Hãy kiểm tra chất lượng nguồn cho mục đích research"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_check",
+            "args": {
+              "sources": [
+                "https://openai.com/research",
+                "https://reddit.com/r/artificial/post/123"
+              ],
+              "purpose": "research"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "source_check",
+            "args": {
+              "sources": [
+                "https://openai.com/research",
+                "https://reddit.com/r/artificial/post/123"
+              ],
+              "purpose": "research",
+              "claim": "GPT-5"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "source_check",
+          "args": {
+            "sources": [
+              "https://openai.com/research",
+              "https://reddit.com/r/artificial/post/123"
+            ],
+            "purpose": "research",
+            "claim": "GPT-5"
+          },
+          "result": {
+            "tool": "source_check",
+            "claim": "GPT-5",
+            "purpose": "research",
+            "source_count": 2,
+            "items": [
+              {
+                "source": "https://openai.com/research",
+                "domain": "openai.com",
+                "trust_level": "high",
+                "reasons": [
+                  "recognized primary, academic, company, or institutional domain"
+                ]
+              },
+              {
+                "source": "https://reddit.com/r/artificial/post/123",
+                "domain": "reddit.com",
+                "trust_level": "medium",
+                "reasons": [
+                  "platform or user-generated content; verify with primary sources"
+                ]
+              }
+            ],
+            "recommendation": "use_with_citation",
+            "guardrail": "This is a heuristic source-quality screen, not a factual verification result."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G07_multiturn_limit_correction",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Lượt mới nhất sửa limit, nhưng vẫn phải giữ mapping Sam Altman -> sama."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Lấy 8 tweet mới nhất của Sam Altman"
+        },
+        {
+          "role": "user",
+          "content": "Thôi lấy 4 tweet thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn của Sam Altman nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama",
+              "limit": 4
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama",
+              "limit": 4
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "sama",
+            "limit": 4
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "JSONDecodeError",
+            "message": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G08_multiturn_missing_url_then_url",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Sau khi URL thiếu được bổ sung ở context, agent phải fetch đúng URL đó."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt bài viết này giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Đây là link: https://example.com/research-agent-eval"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ đọc đúng link đó"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://example.com/research-agent-eval"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://example.com/research-agent-eval"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://example.com/research-agent-eval"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://example.com/research-agent-eval",
+            "items": [
+              {
+                "title": "Example Domain",
+                "url": "https://example.com/research-agent-eval",
+                "source": "example.com",
+                "summary": "# Example Domain\n\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\n\n[Learn more](https://iana.org/domains/example)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G09_multiturn_switch_social_to_web",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Lệnh mới nhất chuyển từ social search sang web news lookup, đồng thời giữ chủ đề và timeframe."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm mọi người nói gì về Claude trên Twitter"
+        },
+        {
+          "role": "user",
+          "content": "Đổi ý, tìm trên web thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn chủ đề Claude và là tin trong tuần này"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "Claude",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "Claude",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Claude",
+            "topic": "news",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Claude",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Users seemingly private conversations with Anthropic's Claude showed up in Google search results - Fortune",
+                "url": "https://fortune.com/2026/07/27/a-trove-of-users-seemingly-private-conversations-with-anthropics-claude-ai-chatbot-showed-up-in-google-search-results/",
+                "source": "fortune.com",
+                "summary": "# A trove of users’ seemingly private conversations with Anthropic’s Claude AI chatbot showed up in Google search results. A trove of seemingly private conversations with Anthropic’s Claude chatbot turned up in public Google search results last weekend. The problem affected chats where users had made use of Claude’s “share” feature—which people typically use to send a record of a conversation to another person. The issue surfaced over the weekend, when members of a discussion channel about Claude on the social media site Reddit found that typing a specific search phrase into Google would pull up a long list of shared Claude conversations. Claude conversations are private by default—the only chats affected were those that users had “shared” with someone else. Claude’s share button works the way those of most competitors do: When users select it, Claude creates a snapshot of your conversation at its own web address, meant to be sent to one person or a small group with that link.",
+                "score": 0.5335682
+              },
+              {
+                "title": "Tons of Peoples’ Claude Chats and Creations are Exposed on Google - 404 Media",
+                "url": "https://www.404media.co/tons-of-peoples-claude-chats-and-creations-are-exposed-on-google/",
+                "source": "404media.co",
+                "summary": "# Tons of Peoples’ Claude Chats and Creations are Exposed on Google. Claude users are creating public share links, but probably don't realize that means their chats are now ending up in Google searches where anyone can dig through them. Claude is exposing a wealth of users’ chats and creations in Google search results, meaning anyone can dig through conversations or other material that people used Claude to make but may not have realized were publicly available for strangers to see. People may do this to send the full text of a conversation to their friends or coworkers in a group chat, for example. One Google dork — a super specific search that is useful for finding particular webpages or files — surfaced Claude chats, according to this post on the Claude subreddit. A Google dork for surfacing them is still working at the time of writing.",
+                "score": 0.49187145
+              },
+              {
+                "title": "Anthropic launches Claude Opus 5, a cheaper AI model for coding, agents and enterprise workflows - VentureBeat",
+                "url": "https://venturebeat.com/orchestration/anthropic-launches-claude-opus-5-a-cheaper-ai-model-for-coding-agents-and-enterprise-workflows",
+                "source": "venturebeat.com",
+                "summary": "# Anthropic launches Claude Opus 5, a cheaper AI model for coding, agents and enterprise workflows. Anthropic released Claude Opus 5 on Friday, a model the company says delivers nearly all the intelligence of its top-of-the-line Claude Fable 5 at half the cost — a launch that signals how the AI race is shifting from raw capability to the economics of daily use. It becomes the new default model on Claude Max, Anthropic's premium consumer tier, and the strongest model available on Claude Pro. Anthropic is not claiming Opus 5 is its smartest model — that distinction still belongs to Fable 5, and rival systems retain an edge in certain domains. \"Opus 5 as your daily driver, the model you hand complex work to and review when it's done,\" an Anthropic spokesperson said in an interview with VentureBeat, describing how the company's lineup now stratifies.",
+                "score": 0.41805586
+              },
+              {
+                "title": "When You Share Claude Chats, You Might Be Sharing Them With Everyone - Gizmodo",
+                "url": "https://gizmodo.com/when-you-share-claude-chats-you-could-be-sharing-them-with-everyone-2000791372",
+                "source": "gizmodo.com",
+                "summary": "# When You Share Claude Chats, You Might Be Sharing Them With Everyone. It turns out Claude may not be the best confidant (well, at least if you’re not careful with your privacy settings). Some users on Twitter and Reddit showed that conversations with Anthropic’s Claude can be crawled and made searchable on Google, essentially readable by anyone who comes across them. The conversations that show up in Google search appear to be both conversations and “Artifacts,” which are the lines of code, documents, and even vibe-coded apps that Claude generates in response to a user’s prompting. Claude does provide somewhat of a warning for this: when users hit the “share” button, they get a message informing them that they are making that chat public and “anyone with the link can view” it. Anthropic told Gizmodo that the only way shared links end up in search results is when they have been posted somewhere that search engines can find them, like on a forum or social media.",
+                "score": 0.4179133
+              },
+              {
+                "title": "Your public Claude app may be searchable on Google - Axios",
+                "url": "https://www.axios.com/2026/07/27/anthropic-claude-public-chats-google-search",
+                "source": "axios.com",
+                "summary": "Some of the shareable apps, tools and visualizations that Claude users make are appearing in Google search results. **Driving the news:** Over the weekend, users on Reddit and X began warning that they could easily use Google to find Claude conversations and artifacts — apps, documents, spreadsheets, web pages and other files created with Claude. * As of Monday afternoon, Axios was still able to find publicly shared Claude artifacts indexed on Google, but not Claude conversations people had with the chatbot. **How it works:** Claude conversations and artifacts are private by default, but users can choose to generate a public link to share either one with others. **What they're saying**: An Anthropic spokesperson said in a statement that the company does not \"share chat directories or sitemaps with search engines like Google.\". * Anthropic added that these chats and artifacts are only searchable on third-party search engines after they've been shared somewhere a search engine can see — such as a discussion forum or social media.",
+                "score": 0.39522812
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G10_multiturn_out_of_scope",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Yêu cầu viết code nằm ngoài phạm vi research nên không được gọi tool."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Bạn có thể giúp research tin AI không?"
+        },
+        {
+          "role": "user",
+          "content": "Vậy viết hộ mình một hàm JavaScript sắp xếp bubble sort"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ cần code thôi, không cần tìm tin"
+        }
+      ],
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Tôi là trợ lý nghiên cứu và tổng hợp thông tin, chuyên hỗ trợ tìm kiếm tài liệu, đọc bài viết, tra cứu mạng xã hội, nghiên cứu khoa học và tổng hợp tin tức (như tin AI). \n\nTôi không hỗ trợ lập trình hay viết mã nguồn (như hàm Bubble Sort trong JavaScript). Nếu bạn cần tìm kiếm tài liệu nghiên cứu, bài báo khoa học hoặc tin tức công nghệ, hãy cho tôi biết nhé!",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    }
+  ]
+}
