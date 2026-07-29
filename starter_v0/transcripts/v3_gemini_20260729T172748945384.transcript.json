@@ -1,0 +1,153 @@
+{
+  "transcript_id": "v3_gemini_20260729T172748945384",
+  "version": "v3",
+  "artifact_version": "v3+p5c86c5095b6d+t071c651c00d9",
+  "prompt_hash": "5c86c5095b6d5d2ca8d9f1fdca7c9ae18966cbd04525904a3f9e1939e9eb5162",
+  "tools_hash": "071c651c00d98cd28911c33cfff748395f74ba1dc68fac7e85bd24eb92e2f583",
+  "provider": "gemini",
+  "model": null,
+  "system_prompt": "D:\\labAI_vinuni\\Buoi4\\DAY04_G26_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\labAI_vinuni\\Buoi4\\DAY04_G26_E403\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T17:27:48",
+  "updated_at": "2026-07-29T17:27:48",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T17:27:48",
+      "status": "answered",
+      "assistant_text": "Dưới đây là một số tin tức nổi bật trong nước và quốc tế:\n\n### 1. Tin tức quốc tế\n* **Mỹ cấm nhập khẩu robot Trung Quốc để bảo vệ chuỗi cung ứng AI:** Ủy ban Truyền thông Liên bang Mỹ (FCC) đã công bố các biện pháp cấm nhập khẩu robot hình người, robot bốn chân và bộ biến tần điện có kết nối của Trung Quốc nhằm bảo vệ chuỗi cung ứng trí tuệ nhân tạo (AI) và an ninh quốc gia của Mỹ ([Tuổi Trẻ](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)).\n* **Căng thẳng Trung Đông:** Bộ Tư lệnh Trung tâm Mỹ (CENTCOM) cho biết lực lượng Vệ binh Cách mạng Hồi giáo Iran (IRGC) đã phóng tên lửa đạn đạo nhắm vào căn cứ Mỹ tại Trung Đông, tuy nhiên toàn bộ số tên lửa đã bị đánh chặn thành công ([Tuổi Trẻ](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)).\n\n### 2. Tin tức trong nước\n* **Hội nghị toàn quốc quán triệt Nghị quyết Trung ương 3 khóa XIV:** Sáng 29/7, Bộ Chính trị tổ chức Hội nghị toàn quốc nghiên cứu, học tập và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV ([Thương hiệu & Công luận](https://thuonghieucongluan.com.vn/tiep-tuc-doi-moi-phuong-thuc-lanh-dao-cam-quyen-cua-dang-doi-voi-he-thong-chinh-tri-va-xa-hoi-a328368.html)).\n* **Thời tiết và thiên tai:** Miền Bắc tiếp tục có mưa lớn diện rộng, các cơ quan chức năng đưa ra cảnh báo về nguy cơ ngập lụt và sạt lở đất tại nhiều tỉnh thành miền núi ([24h](https://www.24h.com.vn/tin-tuc-trong-ngay/sieu-bao-dolphin-co-vao-bien-dong-nhung-ngay-toi-c46a1782270.html)).\n* **Thể thao:** Đội tuyển bóng đá Việt Nam đang chuẩn bị tích cực cho các lượt trận tiếp theo tại ASEAN Cup 2026, với sự chú ý đặc biệt trong cuộc đối đầu sắp tới với tuyển Singapore ([Thanh Niên](https://thanhnien.vn/tin-tuc-dac-biet-tren-bao-in-thanh-nien-2972026-185260728220811242.htm)).",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "timeframe": "day",
+                "topic": "news",
+                "query": "tin tuc"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "timeframe": "day",
+                "topic": "news",
+                "query": "tin tuc"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "tin tuc",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Tin tức nổi bật ngày 29/7/2026 có gì?",
+                    "url": "https://www.vietnam.vn/tin-tuc-noi-bat-ngay-29-7-2026-co-gi",
+                    "source": "vietnam.vn",
+                    "summary": "### Điện lực Mèo Vạc khắc phục sự cố do mưa lũ, nhanh chóng khôi phục cấp điện cho xã Sơn Vĩ\n\nCông ty Điện lực Tuyên Quang\n9 phút trước\n\nBệnh viện Hoàn Mỹ Vinh phát hiện liên tiếp 2 ca mắc hội chứng MRKH hiếm gặp ở tuổi vị thành niên\n\n### Bệnh viện Hoàn Mỹ Vinh phát hiện liên tiếp 2 ca mắc hội chứng MRKH hiếm gặp ở tuổi vị thành niên\n\nBáo Nghệ An\n15 phút trước\n\nPHƯƠNG THỨC VẬN HÀNH NGÀY 30/07/2026\n\n### PHƯƠNG THỨC VẬN HÀNH NGÀY 30/07/2026\n\nCông ty Điện lực Thanh Hóa\n17 phút trước [...] Báo Lm Đồng\n21 phút trước\n\n## Sản phẩm\n\nTừ dòng suối lạnh dựng xy thương hiệu cá tầm OCOP\n\n### Từ dòng suối lạnh dựng xy thương hiệu cá tầm OCOP\n\nBáo Thanh Hóa\nmột giờ trước\n\nVietcombank đồng hành phát triển tài năng AI tại Vietnamese Student HackAIthon 2026\n\n### Vietcombank đồng hành phát triển tài năng AI tại Vietnamese Student HackAIthon 2026\n\nBáo Đại biểu Nhn dn\n2 giờ trước\n\nGánh bánh đúc mật chở cả miền ký ức của cụ bà xứ Huế\n\n### Gánh bánh đúc mật chở cả miền ký ức của cụ bà xứ Huế [...] ### Chung tay gìn giữ Vườn di sản ASEAN\n\nBáo Tin Tức\n34 phút trước\n\nBắc Ninh đẩy nhanh số hóa di sản, hướng tới nng cao hiệu quả phát triển du lịch\n\n### Bắc Ninh đẩy nhanh số hóa di sản, hướng tới nng cao hiệu quả phát triển du lịch\n\nVietnamPlus\n2 giờ trước\n\nĐể lễ hội Ariêu Piing trở thành điểm nhấn du lịch văn hóa miền Ty Quảng Trị\n\n### Để lễ hội Ariêu Piing trở thành điểm nhấn du lịch văn hóa miền Ty Quảng Trị\n\nBáo Văn Hóa\n4 giờ trước",
+                    "score": 0.28383398
+                  },
+                  {
+                    "title": "Tin tức thế giới 29-7: Iran bất ngờ tấn công lực lượng Mỹ",
+                    "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                    "source": "tuoitre.vn",
+                    "summary": "Theo Hãng tin Reuters, ngày 28-7, Ủy ban truyền thông liên bang Mỹ (FCC) đã công bố các biện pháp cấm nhập khẩu robot hình người, robot bốn chân và bộ biến tần điện có kết nối của Trung Quốc.\n\nĐây là các biện pháp nhằm bảo vệ chuỗi cung ứng trí tuệ nhân tạo (AI) của Mỹ, trước nguy cơ Trung Quốc gây gián đoạn và làm ảnh hưởng đến an ninh kinh tế, an ninh quốc gia. [...] Bộ Tư lệnh Trung tâm Mỹ (CENTCOM) ngày 29-7 cáo buộc lực lượng Vệ binh Cách mạng Hồi giáo Iran (IRGC) đã phóng nhiều tên lửa đạn đạo trong một nỗ lực tấn công bất ngờ nhằm vào các lực lượng Mỹ đồn trú tại Trung Đông.\n\n\"Toàn bộ số tên lửa của Iran đã bị đánh chặn thành công. Các lực lượng Mỹ vẫn duy trì cảnh giác và ở trong tình trạng sẵn sàng chiến đấu ở mức cao\", thông báo cho biết.\n\nTrang tin Axios dẫn lời một quan chức Mỹ tiết lộ Iran đã nhắm đến một căn cứ Mỹ ở Jordan. [...] Thủ tướng Israel gặp Tổng thống Ukraine sau 3 năm; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; Vốn hóa Apple lập kỷ lục 5.000 tỉ USD... là những tin tức thế giới đáng chú ý sáng 29-7.\n\nTin tức thế giới 29-7:  - Ảnh 1.\n\nThủ tướng Israel Benjamin Netanyahu (trái) gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington, trước tang lễ của thượng nghị sĩ Mỹ Lindsey Graham ngày 28-7 - Ảnh: AFP\n\n## Iran tấn công lực lượng Mỹ tại Trung Đông",
+                    "score": 0.28352886
+                  },
+                  {
+                    "title": "Tiếp tục đổi mới phương thức lãnh đạo, cầm quyền của Đảng đối với hệ thống chính trị và xã hội",
+                    "url": "https://thuonghieucongluan.com.vn/tiep-tuc-doi-moi-phuong-thuc-lanh-dao-cam-quyen-cua-dang-doi-voi-he-thong-chinh-tri-va-xa-hoi-a328368.html",
+                    "source": "thuonghieucongluan.com.vn",
+                    "summary": "Sáng 29/7, tại Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV, Ủy viên Bộ Chính trị, Phó Thủ tướng Thường trực Phạm Gia Túc đã trình bày những nội dung trọng tm, cốt lõi của Nghị quyết số 21-NQ/TW về quan điểm, định hướng sửa đổi Luật Đất đai và các luật có liên quan.\n Lào Cai quy tập 7 hài cốt liệt sĩ\n\n  ### Lào Cai quy tập 7 hài cốt liệt sĩ\n\n  11:16 29/07 Tin tức [...] ### Các đồng chí lãnh đạo Đảng và Nhà nước dự Hội nghị toàn quốc quán triệt và triển khai thực hiện Nghị quyết Hội nghị Trung ương 3\n\n  10:17 29/07 Tin tức\n\n  Sáng 29/7, Bộ Chính trị tổ chức Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV.\n Ông Hoàng Văn Kiên được bổ nhiệm giữ chức Giám đốc Sở Tài chính Ninh Bình\n\n  ### Ông Hoàng Văn Kiên được bổ nhiệm giữ chức Giám đốc Sở Tài chính Ninh Bình [...] 09:21 29/07 Tin tức\n\n  Sở Tài chính tỉnh Ninh Bình vừa tổ chức hội nghị công bố Quyết định của Chủ tịch UBND tỉnh Ninh Bình về công tác cán bộ. Theo đó, ông Hoàng Văn Kiên, Tỉnh ủy viên, Phó Chủ tịch HĐND tỉnh Ninh Bình được điều động, bổ nhiệm giữ chức Giám đốc Sở Tài chính. Thời hạn bổ nhiệm là 5 năm, kể từ ngày 28/7/2026.\n\nCHỨNG KHOÁN VIỆT NAM\n\n## Video\n\n Bản tin giá cả hàng hóa ngày 29/7: Dầu giảm mạnh, vàng chịu áp lực, cà phê và tiêu đồng loạt tăng",
+                    "score": 0.2685277
+                  },
+                  {
+                    "title": "Siêu bão Dolphin có vào Biển Đông những ngày tới?",
+                    "url": "https://www.24h.com.vn/tin-tuc-trong-ngay/sieu-bao-dolphin-co-vao-bien-dong-nhung-ngay-toi-c46a1782270.html",
+                    "source": "24h.com.vn",
+                    "summary": "Nhiều khu vực mưa to sáng nay, cảnh báo sạt lở ở 10 tỉnh thành  \n Nhiều khu vực mưa to sáng nay, cảnh báo sạt lở ở 10 tỉnh...\n\nTin tức sức khỏe - Mẹo nhỏ giúp hàng vạn người trào ngược dạ dày nặng giảm đau rát họng, đầy bụng khó tiêu\n\nMẹo nhỏ giúp hàng vạn người trào ngược dạ dày nặng giảm đau...   Tin tài trợ\n\nTin tức sức khỏe - Ai trào ngược dạ dày dù nhẹ hay nặng cứ mách họ mẹo này đảm bảo biết ơn bạn cả đời\n\nAi trào ngược dạ dày dù nhẹ hay nặng cứ mách họ mẹo này đảm...   Tin tài trợ [...] Tin tức sức khỏe - Bà nội nằm liệt lở loét da vùng xương cụt: Cháu đích tôn tìm được cách làm lành với đúng 1 bước này\n\nBà nội nằm liệt lở loét da vùng xương cụt: Cháu đích tôn tìm...   Tin tài trợ\n\nNhiều người đọc \n\n Thứ trưởng Bộ NN&MT Hoàng Trung bị bắt với cáo buộc trục lợi số tiền đặc biệt lớn   \n\n  Thứ trưởng Bộ NN&MT Hoàng Trung bị bắt với cáo buộc trục lợi số tiền đặc biệt lớn\n Xác minh vụ người đàn ông ở TP.HCM tử vong sau mua đất lệch ranh [...] Tin tức trong ngày - Hệ thống thoát nước Hà Nội đáp ứng đến đu trước các trận mưa lớn?  \n Hệ thống thoát nước Hà Nội đáp ứng đến đu trước các trận mưa lớn?\n\nTin tức trong ngày - Miền Bắc mưa lớn đỉnh điểm, cảnh báo ngập su  \n Miền Bắc mưa lớn đỉnh điểm, cảnh báo ngập su\n\nTin tức trong ngày - Miền Bắc lại hứng những trận mưa như trút nước, những tỉnh thành này lại là trọng tm mưa lớn  \n Miền Bắc lại hứng những trận mưa như trút nước, những tỉnh thành này...",
+                    "score": 0.26040873
+                  },
+                  {
+                    "title": "Tin tức đặc biệt trên báo in Thanh Niên 29.7.2026",
+                    "url": "https://thanhnien.vn/tin-tuc-dac-biet-tren-bao-in-thanh-nien-2972026-185260728220811242.htm",
+                    "source": "thanhnien.vn",
+                    "summary": "## Hàng thủ Việt Nam cần cẩn trọng trước Singapore\n\nTin tức đặc biệt trên báo in Thanh Niên 29.7.2026 - Ảnh 2.\n\nThành Chung cần chỉ huy tốt hàng thủ đội tuyển VN\n\nẢNH: ĐỒNG NGUYÊN KHANG\n\nNhìn vào những gì đã diễn ra sau 2 lượt trận bảng A ASEAN Cup 2026, đội tuyển VN đủ sức đánh bại Singapore. Tuy nhiên, đội bóng đảo quốc sư tử cũng có những điểm mạnh riêng mà HLV Kim Sang-sik cần dè chừng.\n\n## Giải mã chiến lược 'vừa đàm vừa đánh' của Mỹ lẫn Iran [...] Tin tức đặc biệt trên báo in Thanh Niên 29.7.2026 - Ảnh 1.\n\nCần xy dựng thị trường kim cương, đá quý minh bạch và bảo vệ tốt hơn quyền lợi của người tiêu dùng\n\nẢnh: Đào Ngọc Thạch\n\nGiao dịch thấp, giá sụt giảm, nhiều cửa hàng vẫn đóng cửa càng khiến những người sở hữu kim cương muốn bán ra. Mà càng nhiều người bán thì lại càng nhiều tiệm đóng cửa vì mất thanh khoản. Trường hợp có nơi thu lại, giá cũng lao dốc. Vậy ứng xử thế nào với kim cương lúc này là cu hỏi không dễ trả lời. [...] Tin tức Mùa trung thu nóng trên 'chợ' mạng; Loạn giá, chất lượng đá quý; Điều đáng sợ nhất không phải AI, mà là con người ngừng học... là các thông tin bạn đọc có thể đón xem trên Báo Thanh Niên số ra ngày 26.7.2026.\n\n### Tin tức đặc biệt trên báo in Thanh Niên 27.7.2026\n\n### Tin tức đặc biệt trên báo in Thanh Niên 28.7.2026\n\nChia sẻ\n\n \n\nChọn Báo Thanh Niên làm nguồn ưu tiên trên Google tìm kiếm. Xem hướng dẫn.\n\nBạn muốn Google ưu tiên Bạn muốn Google ưu tiên Laptop\n\nBƯỚC 1",
+                    "score": 0.21665761
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là một số tin tức nổi bật trong nước và quốc tế:\n\n### 1. Tin tức quốc tế\n* **Mỹ cấm nhập khẩu robot Trung Quốc để bảo vệ chuỗi cung ứng AI:** Ủy ban Truyền thông Liên bang Mỹ (FCC) đã công bố các biện pháp cấm nhập khẩu robot hình người, robot bốn chân và bộ biến tần điện có kết nối của Trung Quốc nhằm bảo vệ chuỗi cung ứng trí tuệ nhân tạo (AI) và an ninh quốc gia của Mỹ ([Tuổi Trẻ](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)).\n* **Căng thẳng Trung Đông:** Bộ Tư lệnh Trung tâm Mỹ (CENTCOM) cho biết lực lượng Vệ binh Cách mạng Hồi giáo Iran (IRGC) đã phóng tên lửa đạn đạo nhắm vào căn cứ Mỹ tại Trung Đông, tuy nhiên toàn bộ số tên lửa đã bị đánh chặn thành công ([Tuổi Trẻ](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)).\n\n### 2. Tin tức trong nước\n* **Hội nghị toàn quốc quán triệt Nghị quyết Trung ương 3 khóa XIV:** Sáng 29/7, Bộ Chính trị tổ chức Hội nghị toàn quốc nghiên cứu, học tập và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV ([Thương hiệu & Công luận](https://thuonghieucongluan.com.vn/tiep-tuc-doi-moi-phuong-thuc-lanh-dao-cam-quyen-cua-dang-doi-voi-he-thong-chinh-tri-va-xa-hoi-a328368.html)).\n* **Thời tiết và thiên tai:** Miền Bắc tiếp tục có mưa lớn diện rộng, các cơ quan chức năng đưa ra cảnh báo về nguy cơ ngập lụt và sạt lở đất tại nhiều tỉnh thành miền núi ([24h](https://www.24h.com.vn/tin-tuc-trong-ngay/sieu-bao-dolphin-co-vao-bien-dong-nhung-ngay-toi-c46a1782270.html)).\n* **Thể thao:** Đội tuyển bóng đá Việt Nam đang chuẩn bị tích cực cho các lượt trận tiếp theo tại ASEAN Cup 2026, với sự chú ý đặc biệt trong cuộc đối đầu sắp tới với tuyển Singapore ([Thanh Niên](https://thanhnien.vn/tin-tuc-dac-biet-tren-bao-in-thanh-nien-2972026-185260728220811242.htm)).",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "timeframe": "day",
+            "topic": "news",
+            "query": "tin tuc"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "tin tuc",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Tin tức nổi bật ngày 29/7/2026 có gì?",
+                "url": "https://www.vietnam.vn/tin-tuc-noi-bat-ngay-29-7-2026-co-gi",
+                "source": "vietnam.vn",
+                "summary": "### Điện lực Mèo Vạc khắc phục sự cố do mưa lũ, nhanh chóng khôi phục cấp điện cho xã Sơn Vĩ\n\nCông ty Điện lực Tuyên Quang\n9 phút trước\n\nBệnh viện Hoàn Mỹ Vinh phát hiện liên tiếp 2 ca mắc hội chứng MRKH hiếm gặp ở tuổi vị thành niên\n\n### Bệnh viện Hoàn Mỹ Vinh phát hiện liên tiếp 2 ca mắc hội chứng MRKH hiếm gặp ở tuổi vị thành niên\n\nBáo Nghệ An\n15 phút trước\n\nPHƯƠNG THỨC VẬN HÀNH NGÀY 30/07/2026\n\n### PHƯƠNG THỨC VẬN HÀNH NGÀY 30/07/2026\n\nCông ty Điện lực Thanh Hóa\n17 phút trước [...] Báo Lm Đồng\n21 phút trước\n\n## Sản phẩm\n\nTừ dòng suối lạnh dựng xy thương hiệu cá tầm OCOP\n\n### Từ dòng suối lạnh dựng xy thương hiệu cá tầm OCOP\n\nBáo Thanh Hóa\nmột giờ trước\n\nVietcombank đồng hành phát triển tài năng AI tại Vietnamese Student HackAIthon 2026\n\n### Vietcombank đồng hành phát triển tài năng AI tại Vietnamese Student HackAIthon 2026\n\nBáo Đại biểu Nhn dn\n2 giờ trước\n\nGánh bánh đúc mật chở cả miền ký ức của cụ bà xứ Huế\n\n### Gánh bánh đúc mật chở cả miền ký ức của cụ bà xứ Huế [...] ### Chung tay gìn giữ Vườn di sản ASEAN\n\nBáo Tin Tức\n34 phút trước\n\nBắc Ninh đẩy nhanh số hóa di sản, hướng tới nng cao hiệu quả phát triển du lịch\n\n### Bắc Ninh đẩy nhanh số hóa di sản, hướng tới nng cao hiệu quả phát triển du lịch\n\nVietnamPlus\n2 giờ trước\n\nĐể lễ hội Ariêu Piing trở thành điểm nhấn du lịch văn hóa miền Ty Quảng Trị\n\n### Để lễ hội Ariêu Piing trở thành điểm nhấn du lịch văn hóa miền Ty Quảng Trị\n\nBáo Văn Hóa\n4 giờ trước",
+                "score": 0.28383398
+              },
+              {
+                "title": "Tin tức thế giới 29-7: Iran bất ngờ tấn công lực lượng Mỹ",
+                "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                "source": "tuoitre.vn",
+                "summary": "Theo Hãng tin Reuters, ngày 28-7, Ủy ban truyền thông liên bang Mỹ (FCC) đã công bố các biện pháp cấm nhập khẩu robot hình người, robot bốn chân và bộ biến tần điện có kết nối của Trung Quốc.\n\nĐây là các biện pháp nhằm bảo vệ chuỗi cung ứng trí tuệ nhân tạo (AI) của Mỹ, trước nguy cơ Trung Quốc gây gián đoạn và làm ảnh hưởng đến an ninh kinh tế, an ninh quốc gia. [...] Bộ Tư lệnh Trung tâm Mỹ (CENTCOM) ngày 29-7 cáo buộc lực lượng Vệ binh Cách mạng Hồi giáo Iran (IRGC) đã phóng nhiều tên lửa đạn đạo trong một nỗ lực tấn công bất ngờ nhằm vào các lực lượng Mỹ đồn trú tại Trung Đông.\n\n\"Toàn bộ số tên lửa của Iran đã bị đánh chặn thành công. Các lực lượng Mỹ vẫn duy trì cảnh giác và ở trong tình trạng sẵn sàng chiến đấu ở mức cao\", thông báo cho biết.\n\nTrang tin Axios dẫn lời một quan chức Mỹ tiết lộ Iran đã nhắm đến một căn cứ Mỹ ở Jordan. [...] Thủ tướng Israel gặp Tổng thống Ukraine sau 3 năm; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; Vốn hóa Apple lập kỷ lục 5.000 tỉ USD... là những tin tức thế giới đáng chú ý sáng 29-7.\n\nTin tức thế giới 29-7:  - Ảnh 1.\n\nThủ tướng Israel Benjamin Netanyahu (trái) gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington, trước tang lễ của thượng nghị sĩ Mỹ Lindsey Graham ngày 28-7 - Ảnh: AFP\n\n## Iran tấn công lực lượng Mỹ tại Trung Đông",
+                "score": 0.28352886
+              },
+              {
+                "title": "Tiếp tục đổi mới phương thức lãnh đạo, cầm quyền của Đảng đối với hệ thống chính trị và xã hội",
+                "url": "https://thuonghieucongluan.com.vn/tiep-tuc-doi-moi-phuong-thuc-lanh-dao-cam-quyen-cua-dang-doi-voi-he-thong-chinh-tri-va-xa-hoi-a328368.html",
+                "source": "thuonghieucongluan.com.vn",
+                "summary": "Sáng 29/7, tại Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV, Ủy viên Bộ Chính trị, Phó Thủ tướng Thường trực Phạm Gia Túc đã trình bày những nội dung trọng tm, cốt lõi của Nghị quyết số 21-NQ/TW về quan điểm, định hướng sửa đổi Luật Đất đai và các luật có liên quan.\n Lào Cai quy tập 7 hài cốt liệt sĩ\n\n  ### Lào Cai quy tập 7 hài cốt liệt sĩ\n\n  11:16 29/07 Tin tức [...] ### Các đồng chí lãnh đạo Đảng và Nhà nước dự Hội nghị toàn quốc quán triệt và triển khai thực hiện Nghị quyết Hội nghị Trung ương 3\n\n  10:17 29/07 Tin tức\n\n  Sáng 29/7, Bộ Chính trị tổ chức Hội nghị toàn quốc nghiên cứu, học tập, quán triệt và triển khai thực hiện Nghị quyết Hội nghị lần thứ ba Ban Chấp hành Trung ương Đảng khóa XIV.\n Ông Hoàng Văn Kiên được bổ nhiệm giữ chức Giám đốc Sở Tài chính Ninh Bình\n\n  ### Ông Hoàng Văn Kiên được bổ nhiệm giữ chức Giám đốc Sở Tài chính Ninh Bình [...] 09:21 29/07 Tin tức\n\n  Sở Tài chính tỉnh Ninh Bình vừa tổ chức hội nghị công bố Quyết định của Chủ tịch UBND tỉnh Ninh Bình về công tác cán bộ. Theo đó, ông Hoàng Văn Kiên, Tỉnh ủy viên, Phó Chủ tịch HĐND tỉnh Ninh Bình được điều động, bổ nhiệm giữ chức Giám đốc Sở Tài chính. Thời hạn bổ nhiệm là 5 năm, kể từ ngày 28/7/2026.\n\nCHỨNG KHOÁN VIỆT NAM\n\n## Video\n\n Bản tin giá cả hàng hóa ngày 29/7: Dầu giảm mạnh, vàng chịu áp lực, cà phê và tiêu đồng loạt tăng",
+                "score": 0.2685277
+              },
+              {
+                "title": "Siêu bão Dolphin có vào Biển Đông những ngày tới?",
+                "url": "https://www.24h.com.vn/tin-tuc-trong-ngay/sieu-bao-dolphin-co-vao-bien-dong-nhung-ngay-toi-c46a1782270.html",
+                "source": "24h.com.vn",
+                "summary": "Nhiều khu vực mưa to sáng nay, cảnh báo sạt lở ở 10 tỉnh thành  \n Nhiều khu vực mưa to sáng nay, cảnh báo sạt lở ở 10 tỉnh...\n\nTin tức sức khỏe - Mẹo nhỏ giúp hàng vạn người trào ngược dạ dày nặng giảm đau rát họng, đầy bụng khó tiêu\n\nMẹo nhỏ giúp hàng vạn người trào ngược dạ dày nặng giảm đau...   Tin tài trợ\n\nTin tức sức khỏe - Ai trào ngược dạ dày dù nhẹ hay nặng cứ mách họ mẹo này đảm bảo biết ơn bạn cả đời\n\nAi trào ngược dạ dày dù nhẹ hay nặng cứ mách họ mẹo này đảm...   Tin tài trợ [...] Tin tức sức khỏe - Bà nội nằm liệt lở loét da vùng xương cụt: Cháu đích tôn tìm được cách làm lành với đúng 1 bước này\n\nBà nội nằm liệt lở loét da vùng xương cụt: Cháu đích tôn tìm...   Tin tài trợ\n\nNhiều người đọc \n\n Thứ trưởng Bộ NN&MT Hoàng Trung bị bắt với cáo buộc trục lợi số tiền đặc biệt lớn   \n\n  Thứ trưởng Bộ NN&MT Hoàng Trung bị bắt với cáo buộc trục lợi số tiền đặc biệt lớn\n Xác minh vụ người đàn ông ở TP.HCM tử vong sau mua đất lệch ranh [...] Tin tức trong ngày - Hệ thống thoát nước Hà Nội đáp ứng đến đu trước các trận mưa lớn?  \n Hệ thống thoát nước Hà Nội đáp ứng đến đu trước các trận mưa lớn?\n\nTin tức trong ngày - Miền Bắc mưa lớn đỉnh điểm, cảnh báo ngập su  \n Miền Bắc mưa lớn đỉnh điểm, cảnh báo ngập su\n\nTin tức trong ngày - Miền Bắc lại hứng những trận mưa như trút nước, những tỉnh thành này lại là trọng tm mưa lớn  \n Miền Bắc lại hứng những trận mưa như trút nước, những tỉnh thành này...",
+                "score": 0.26040873
+              },
+              {
+                "title": "Tin tức đặc biệt trên báo in Thanh Niên 29.7.2026",
+                "url": "https://thanhnien.vn/tin-tuc-dac-biet-tren-bao-in-thanh-nien-2972026-185260728220811242.htm",
+                "source": "thanhnien.vn",
+                "summary": "## Hàng thủ Việt Nam cần cẩn trọng trước Singapore\n\nTin tức đặc biệt trên báo in Thanh Niên 29.7.2026 - Ảnh 2.\n\nThành Chung cần chỉ huy tốt hàng thủ đội tuyển VN\n\nẢNH: ĐỒNG NGUYÊN KHANG\n\nNhìn vào những gì đã diễn ra sau 2 lượt trận bảng A ASEAN Cup 2026, đội tuyển VN đủ sức đánh bại Singapore. Tuy nhiên, đội bóng đảo quốc sư tử cũng có những điểm mạnh riêng mà HLV Kim Sang-sik cần dè chừng.\n\n## Giải mã chiến lược 'vừa đàm vừa đánh' của Mỹ lẫn Iran [...] Tin tức đặc biệt trên báo in Thanh Niên 29.7.2026 - Ảnh 1.\n\nCần xy dựng thị trường kim cương, đá quý minh bạch và bảo vệ tốt hơn quyền lợi của người tiêu dùng\n\nẢnh: Đào Ngọc Thạch\n\nGiao dịch thấp, giá sụt giảm, nhiều cửa hàng vẫn đóng cửa càng khiến những người sở hữu kim cương muốn bán ra. Mà càng nhiều người bán thì lại càng nhiều tiệm đóng cửa vì mất thanh khoản. Trường hợp có nơi thu lại, giá cũng lao dốc. Vậy ứng xử thế nào với kim cương lúc này là cu hỏi không dễ trả lời. [...] Tin tức Mùa trung thu nóng trên 'chợ' mạng; Loạn giá, chất lượng đá quý; Điều đáng sợ nhất không phải AI, mà là con người ngừng học... là các thông tin bạn đọc có thể đón xem trên Báo Thanh Niên số ra ngày 26.7.2026.\n\n### Tin tức đặc biệt trên báo in Thanh Niên 27.7.2026\n\n### Tin tức đặc biệt trên báo in Thanh Niên 28.7.2026\n\nChia sẻ\n\n \n\nChọn Báo Thanh Niên làm nguồn ưu tiên trên Google tìm kiếm. Xem hướng dẫn.\n\nBạn muốn Google ưu tiên Bạn muốn Google ưu tiên Laptop\n\nBƯỚC 1",
+                "score": 0.21665761
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T17:27:48",
+      "user": "tin tức mới nhất"
+    }
+  ]
+}
