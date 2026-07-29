@@ -1,0 +1,263 @@
+{
+  "transcript_id": "v3_gemini_20260729T165722209329",
+  "version": "v3",
+  "artifact_version": "v3+p5c86c5095b6d+t071c651c00d9",
+  "prompt_hash": "5c86c5095b6d5d2ca8d9f1fdca7c9ae18966cbd04525904a3f9e1939e9eb5162",
+  "tools_hash": "071c651c00d98cd28911c33cfff748395f74ba1dc68fac7e85bd24eb92e2f583",
+  "provider": "gemini",
+  "model": null,
+  "system_prompt": "D:\\labAI_vinuni\\Buoi4\\DAY04_G26_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\labAI_vinuni\\Buoi4\\DAY04_G26_E403\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:57:22",
+  "updated_at": "2026-07-29T16:57:22",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:57:22",
+      "status": "answered",
+      "assistant_text": "# Tin tức tổng hợp nổi bật\n\n## Thế giới\n- Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301. - [vietnam.vn](https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut)\n- Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD. - [tuoitre.vn](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)\n\n## Kinh tế - Thị trường\n- Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%. - [qdnd.vn](https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176)",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "topic": "news",
+                "query": "tin tuc viet nam the gioi",
+                "timeframe": "day"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "topic": "news",
+                "query": "tin tuc viet nam the gioi",
+                "timeframe": "day"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "tin tuc viet nam the gioi",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Tin tức Thế giới 29/7: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút",
+                    "url": "https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut",
+                    "source": "vietnam.vn",
+                    "summary": "# Tin tức Thế giới 29/7: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút\n\n### Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp qun sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Triều Tiên kỷ niệm 73 năm Ngày Chiến thắng là những tin tức thế giới đáng chú ý ngày 29/7.\n\nVietNamNetVietNamNet•28/07/2026\n\n### Ông Trump cảnh báo Iran về tái áp dụng biện pháp qun sự cứng rắn\n\n     \n\nTổng thống Mỹ Donald Trump. Ảnh: EPA [...] Đề nghị Hoa Kỳ đánh giá đầy đủ nỗ lực xy dựng pháp luật và thực thi của Việt NamNgày 25/7, trả lời cu hỏi của phóng viên đề nghị cho biết phản ứng của Việt Nam trước việc Cơ quan Đại diện Thương mại Hoa Kỳ (USTR) áp mức thuế mới 12,5% đối với hàng hóa của tất cả các nền kinh tế “bị điều tra” theo Mục 301, Người Phát ngôn Bộ Ngoại giao Việt Nam Phạm Thu Hằng nêu rõ. [...] Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5%Bộ Ngoại giao cho biết, việc Mỹ áp thuế mới 12,5% theo Mục 301 chưa phản ánh đầy đủ nỗ lực của Việt Nam trong phòng ngừa, giảm thiểu lao động cưỡng bức.\n\nĐề nghị Hoa Kỳ đánh giá đầy đủ nỗ lực xy dựng pháp luật và thực thi của Việt Nam",
+                    "score": 0.5749443
+                  },
+                  {
+                    "title": "Tin tức thế giới 29-7: Iran bất ngờ tấn công lực lượng Mỹ",
+                    "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                    "source": "tuoitre.vn",
+                    "summary": "Thủ tướng Israel gặp Tổng thống Ukraine sau 3 năm; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; Vốn hóa Apple lập kỷ lục 5.000 tỉ USD... là những tin tức thế giới đáng chú ý sáng 29-7.\n\nTin tức thế giới 29-7:  - Ảnh 1.\n\nThủ tướng Israel Benjamin Netanyahu (trái) gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington, trước tang lễ của thượng nghị sĩ Mỹ Lindsey Graham ngày 28-7 - Ảnh: AFP\n\n## Iran tấn công lực lượng Mỹ tại Trung Đông [...] Giấy phép hoạt động báo điện tử tiếng Việt, tiếng Anh Số 561/GP-BTTTT, cấp ngày 25-11-2022.\n\nĐịa chỉ: 60A Hoàng Văn Thụ, phường Đức Nhuận, Tp. Hồ Chí Minh\n\nHotline: 0918.033.133 - Email: tto@tuoitre.com.vn\n\nQuảng cáo: 028.39974848\n\n© Copyright 2026 Bao dien tu Tuoi Tre, All rights reserved\n® Báo điện tử Tuổi Trẻ giữ bản quyền nội dung trên website này\n\nThông tin của bạn\n\nVui lòng nhập Email\n\nEmail Không đúng định dạng\n\nVui lòng nhập Họ & Tên.\n\nThông báo\n\nThông báo\n\nVui lòng nhập Tên hiển thị [...] Các quy định có hiệu lực ngay sau khi được công bố nhưng chỉ áp dụng đối với các mẫu robot và bộ biến tần chưa được phát hành. Dù vậy FCC vẫn có quyền thu hồi giấy phép bán đối với các mẫu đã được cấp phép lưu hành tại Mỹ.\n\nTin tức thế giới 29-7:  - Ảnh 3.\n\nRobot hình người của UBTech đang làm việc trên dây chuyền lắp ráp xe ô tô - Ảnh: REUTERS",
+                    "score": 0.3642578
+                  },
+                  {
+                    "title": "Tin thế giới nổi bật trong ngày 31/5 - Báo và Phát thanh, Truyền hình Lạng Sơn - Báo và Phát thanh, Truyền hình Lạng Sơn",
+                    "url": "https://baolangson.vn/tin-the-gioi-noi-bat-trong-ngay-31-5-5094001.html",
+                    "source": "baolangson.vn",
+                    "summary": "Trong bản tin thế giới mới nhất hôm nay 31/5, các diễn biến đáng chú ý tập trung vào việc Ukraine bị Nga cáo buộc tấn công nhà máy điện hạt nhn lớn nhất chu u và tập kích nhà máy lọc dầu Saratov, Tổng thống Donald Trump yêu cầu siết chặt các điều khoản trong đề xuất thỏa thuận chấm dứt xung đột với Iran, cùng hiện tượng thiên thạch phát nổ trên bầu trời Mỹ gy rung chấn tại nhiều bang.\n\nNhà máy lọc dầu Nga trúng UAV Ukraine [...] Các video đăng tải trên mạng xã hội ghi lại hai tiếng nổ liên tiếp, trong khi nhiều người dn cho biết các tòa nhà rung lắc như xảy ra động đất. Tuy nhiên, Cơ quan Khảo sát Địa chất Hoa Kỳ xác nhận không ghi nhận bất kỳ trận động đất nào trên hệ thống địa chấn. Theo các chuyên gia, phần lớn thiên thạch sẽ cháy rụi trong khí quyển trước khi chạm đất; nếu còn sót lại mảnh vỡ, nhiều khả năng chúng đã rơi xuống biển.\n\nTheo vtcnews.vn\n\nĐọc bài gốc tại đy\n\n### Ý kiến ()\n\n0 / 500 ký tự [...] 1. Quốc tế\n\nThứ 4, 29/07/2026 10:29 [(GMT +7)]\n\n# Tin thế giới nổi bật trong ngày 31/5\n\nChủ nhật, 31/05/2026 | 15:22:24 [(GMT +7)] A  A\n\nIn\n\nTheo dõi trên \n\n## Tổng hợp tin tức 31/5: Nga cáo buộc Ukraine tấn công cơ sở hạt nhn và nhà máy lọc dầu, ông Trump siết điều kiện đàm phán với Iran, thiên thạch gy rung chấn tại Mỹ.",
+                    "score": 0.3467409
+                  },
+                  {
+                    "title": "Giá vàng hôm nay (29-7): Vàng trong nước và thế giới cùng giảm",
+                    "url": "https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176",
+                    "source": "qdnd.vn",
+                    "summary": "### Đồng Nai thu hút đầu tư có chọn lọc, đẩy mạnh chuyển đổi số trong quản trị khu công nghiệp\n\nMỹ đánh chặn tên lửa Iran, Việt Nam kêu gọi chấm dứt xung đột\n\n### Mỹ đánh chặn tên lửa Iran, Việt Nam kêu gọi chấm dứt xung đột\n\n1 lao động Việt Nam thiệt mạng tại Nhật Bản do động đất\n\n### 1 lao động Việt Nam thiệt mạng tại Nhật Bản do động đất\n\nViettel chung tay khám sàng lọc bệnh tim bẩm sinh miễn phí cho trẻ em\n\n### Viettel chung tay khám sàng lọc bệnh tim bẩm sinh miễn phí cho trẻ em [...] Tỷ giá USD hôm nay (29-7): Đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed\n\n### Tỷ giá USD hôm nay (29-7): Đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed: Đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed\")\n\nGiá xăng dầu hôm nay (29-7): Giá dầu thế giới giảm 5%\n\n### Giá xăng dầu hôm nay (29-7): Giá dầu thế giới giảm 5%: Giá dầu thế giới giảm 5%\")\n\nĐồng Nai thu hút đầu tư có chọn lọc, đẩy mạnh chuyển đổi số trong quản trị khu công nghiệp [...] Ban Bí thư thi hành kỷ luật 5 đảng viên vi phạm\n\n### Ban Bí thư thi hành kỷ luật 5 đảng viên vi phạm\n\nBàn giao nhiệm vụ Chủ tịch và Bí thư Đảng ủy Tổng công ty Sông Thu \n\n### Bàn giao nhiệm vụ Chủ tịch và Bí thư Đảng ủy Tổng công ty Sông Thu\n\nĐại tướng Nguyễn Tân Cương chủ trì Hội nghị giao ban Bộ Tổng Tham mưu tháng 7 năm 2026\n\n### Đại tướng Nguyễn Tân Cương chủ trì Hội nghị giao ban Bộ Tổng Tham mưu tháng 7 năm 2026",
+                    "score": 0.24301806
+                  },
+                  {
+                    "title": "Người gìn giữ ký ức chiến tranh qua những kỷ vật",
+                    "url": "https://baotintuc.vn/video/nguoi-gin-giu-ky-uc-chien-tranh-qua-nhung-ky-vat-20260729154506911.htm",
+                    "source": "baotintuc.vn",
+                    "summary": "Bắt đầu từ một bộ quân hàm được trao tặng, Đại đức Thích Thanh Toàn đã dành gần ba năm sưu tầm hơn 500 kỷ vật của lực lượng quân đội và công an.",
+                    "score": 0.038138922
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "template": "sections",
+                "items": [
+                  {
+                    "url": "https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut",
+                    "section": "Thế giới",
+                    "title": "Tin tức Thế giới: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút",
+                    "source": "vietnam.vn",
+                    "summary": "Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301."
+                  },
+                  {
+                    "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                    "section": "Thế giới",
+                    "summary": "Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD.",
+                    "title": "Tin tức thế giới: Iran tấn công lực lượng Mỹ, Apple lập kỷ lục vốn hóa",
+                    "source": "tuoitre.vn"
+                  },
+                  {
+                    "section": "Kinh tế - Thị trường",
+                    "title": "Giá vàng, tỷ giá và thị trường năng lượng hôm nay",
+                    "source": "qdnd.vn",
+                    "url": "https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176",
+                    "summary": "Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%."
+                  }
+                ],
+                "headline": "Tin tức tổng hợp nổi bật"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "template": "sections",
+                "items": [
+                  {
+                    "url": "https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut",
+                    "section": "Thế giới",
+                    "title": "Tin tức Thế giới: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút",
+                    "source": "vietnam.vn",
+                    "summary": "Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301."
+                  },
+                  {
+                    "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                    "section": "Thế giới",
+                    "summary": "Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD.",
+                    "title": "Tin tức thế giới: Iran tấn công lực lượng Mỹ, Apple lập kỷ lục vốn hóa",
+                    "source": "tuoitre.vn"
+                  },
+                  {
+                    "section": "Kinh tế - Thị trường",
+                    "title": "Giá vàng, tỷ giá và thị trường năng lượng hôm nay",
+                    "source": "qdnd.vn",
+                    "url": "https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176",
+                    "summary": "Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%."
+                  }
+                ],
+                "headline": "Tin tức tổng hợp nổi bật"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "# Tin tức tổng hợp nổi bật\n\n## Thế giới\n- Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301. - [vietnam.vn](https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut)\n- Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD. - [tuoitre.vn](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)\n\n## Kinh tế - Thị trường\n- Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%. - [qdnd.vn](https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176)\n",
+                "item_count": 3
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "# Tin tức tổng hợp nổi bật\n\n## Thế giới\n- Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301. - [vietnam.vn](https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut)\n- Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD. - [tuoitre.vn](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)\n\n## Kinh tế - Thị trường\n- Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%. - [qdnd.vn](https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176)",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "topic": "news",
+            "query": "tin tuc viet nam the gioi",
+            "timeframe": "day"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "tin tuc viet nam the gioi",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Tin tức Thế giới 29/7: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút",
+                "url": "https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut",
+                "source": "vietnam.vn",
+                "summary": "# Tin tức Thế giới 29/7: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút\n\n### Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp qun sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Triều Tiên kỷ niệm 73 năm Ngày Chiến thắng là những tin tức thế giới đáng chú ý ngày 29/7.\n\nVietNamNetVietNamNet•28/07/2026\n\n### Ông Trump cảnh báo Iran về tái áp dụng biện pháp qun sự cứng rắn\n\n     \n\nTổng thống Mỹ Donald Trump. Ảnh: EPA [...] Đề nghị Hoa Kỳ đánh giá đầy đủ nỗ lực xy dựng pháp luật và thực thi của Việt NamNgày 25/7, trả lời cu hỏi của phóng viên đề nghị cho biết phản ứng của Việt Nam trước việc Cơ quan Đại diện Thương mại Hoa Kỳ (USTR) áp mức thuế mới 12,5% đối với hàng hóa của tất cả các nền kinh tế “bị điều tra” theo Mục 301, Người Phát ngôn Bộ Ngoại giao Việt Nam Phạm Thu Hằng nêu rõ. [...] Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5%Bộ Ngoại giao cho biết, việc Mỹ áp thuế mới 12,5% theo Mục 301 chưa phản ánh đầy đủ nỗ lực của Việt Nam trong phòng ngừa, giảm thiểu lao động cưỡng bức.\n\nĐề nghị Hoa Kỳ đánh giá đầy đủ nỗ lực xy dựng pháp luật và thực thi của Việt Nam",
+                "score": 0.5749443
+              },
+              {
+                "title": "Tin tức thế giới 29-7: Iran bất ngờ tấn công lực lượng Mỹ",
+                "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                "source": "tuoitre.vn",
+                "summary": "Thủ tướng Israel gặp Tổng thống Ukraine sau 3 năm; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; Vốn hóa Apple lập kỷ lục 5.000 tỉ USD... là những tin tức thế giới đáng chú ý sáng 29-7.\n\nTin tức thế giới 29-7:  - Ảnh 1.\n\nThủ tướng Israel Benjamin Netanyahu (trái) gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington, trước tang lễ của thượng nghị sĩ Mỹ Lindsey Graham ngày 28-7 - Ảnh: AFP\n\n## Iran tấn công lực lượng Mỹ tại Trung Đông [...] Giấy phép hoạt động báo điện tử tiếng Việt, tiếng Anh Số 561/GP-BTTTT, cấp ngày 25-11-2022.\n\nĐịa chỉ: 60A Hoàng Văn Thụ, phường Đức Nhuận, Tp. Hồ Chí Minh\n\nHotline: 0918.033.133 - Email: tto@tuoitre.com.vn\n\nQuảng cáo: 028.39974848\n\n© Copyright 2026 Bao dien tu Tuoi Tre, All rights reserved\n® Báo điện tử Tuổi Trẻ giữ bản quyền nội dung trên website này\n\nThông tin của bạn\n\nVui lòng nhập Email\n\nEmail Không đúng định dạng\n\nVui lòng nhập Họ & Tên.\n\nThông báo\n\nThông báo\n\nVui lòng nhập Tên hiển thị [...] Các quy định có hiệu lực ngay sau khi được công bố nhưng chỉ áp dụng đối với các mẫu robot và bộ biến tần chưa được phát hành. Dù vậy FCC vẫn có quyền thu hồi giấy phép bán đối với các mẫu đã được cấp phép lưu hành tại Mỹ.\n\nTin tức thế giới 29-7:  - Ảnh 3.\n\nRobot hình người của UBTech đang làm việc trên dây chuyền lắp ráp xe ô tô - Ảnh: REUTERS",
+                "score": 0.3642578
+              },
+              {
+                "title": "Tin thế giới nổi bật trong ngày 31/5 - Báo và Phát thanh, Truyền hình Lạng Sơn - Báo và Phát thanh, Truyền hình Lạng Sơn",
+                "url": "https://baolangson.vn/tin-the-gioi-noi-bat-trong-ngay-31-5-5094001.html",
+                "source": "baolangson.vn",
+                "summary": "Trong bản tin thế giới mới nhất hôm nay 31/5, các diễn biến đáng chú ý tập trung vào việc Ukraine bị Nga cáo buộc tấn công nhà máy điện hạt nhn lớn nhất chu u và tập kích nhà máy lọc dầu Saratov, Tổng thống Donald Trump yêu cầu siết chặt các điều khoản trong đề xuất thỏa thuận chấm dứt xung đột với Iran, cùng hiện tượng thiên thạch phát nổ trên bầu trời Mỹ gy rung chấn tại nhiều bang.\n\nNhà máy lọc dầu Nga trúng UAV Ukraine [...] Các video đăng tải trên mạng xã hội ghi lại hai tiếng nổ liên tiếp, trong khi nhiều người dn cho biết các tòa nhà rung lắc như xảy ra động đất. Tuy nhiên, Cơ quan Khảo sát Địa chất Hoa Kỳ xác nhận không ghi nhận bất kỳ trận động đất nào trên hệ thống địa chấn. Theo các chuyên gia, phần lớn thiên thạch sẽ cháy rụi trong khí quyển trước khi chạm đất; nếu còn sót lại mảnh vỡ, nhiều khả năng chúng đã rơi xuống biển.\n\nTheo vtcnews.vn\n\nĐọc bài gốc tại đy\n\n### Ý kiến ()\n\n0 / 500 ký tự [...] 1. Quốc tế\n\nThứ 4, 29/07/2026 10:29 [(GMT +7)]\n\n# Tin thế giới nổi bật trong ngày 31/5\n\nChủ nhật, 31/05/2026 | 15:22:24 [(GMT +7)] A  A\n\nIn\n\nTheo dõi trên \n\n## Tổng hợp tin tức 31/5: Nga cáo buộc Ukraine tấn công cơ sở hạt nhn và nhà máy lọc dầu, ông Trump siết điều kiện đàm phán với Iran, thiên thạch gy rung chấn tại Mỹ.",
+                "score": 0.3467409
+              },
+              {
+                "title": "Giá vàng hôm nay (29-7): Vàng trong nước và thế giới cùng giảm",
+                "url": "https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176",
+                "source": "qdnd.vn",
+                "summary": "### Đồng Nai thu hút đầu tư có chọn lọc, đẩy mạnh chuyển đổi số trong quản trị khu công nghiệp\n\nMỹ đánh chặn tên lửa Iran, Việt Nam kêu gọi chấm dứt xung đột\n\n### Mỹ đánh chặn tên lửa Iran, Việt Nam kêu gọi chấm dứt xung đột\n\n1 lao động Việt Nam thiệt mạng tại Nhật Bản do động đất\n\n### 1 lao động Việt Nam thiệt mạng tại Nhật Bản do động đất\n\nViettel chung tay khám sàng lọc bệnh tim bẩm sinh miễn phí cho trẻ em\n\n### Viettel chung tay khám sàng lọc bệnh tim bẩm sinh miễn phí cho trẻ em [...] Tỷ giá USD hôm nay (29-7): Đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed\n\n### Tỷ giá USD hôm nay (29-7): Đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed: Đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed\")\n\nGiá xăng dầu hôm nay (29-7): Giá dầu thế giới giảm 5%\n\n### Giá xăng dầu hôm nay (29-7): Giá dầu thế giới giảm 5%: Giá dầu thế giới giảm 5%\")\n\nĐồng Nai thu hút đầu tư có chọn lọc, đẩy mạnh chuyển đổi số trong quản trị khu công nghiệp [...] Ban Bí thư thi hành kỷ luật 5 đảng viên vi phạm\n\n### Ban Bí thư thi hành kỷ luật 5 đảng viên vi phạm\n\nBàn giao nhiệm vụ Chủ tịch và Bí thư Đảng ủy Tổng công ty Sông Thu \n\n### Bàn giao nhiệm vụ Chủ tịch và Bí thư Đảng ủy Tổng công ty Sông Thu\n\nĐại tướng Nguyễn Tân Cương chủ trì Hội nghị giao ban Bộ Tổng Tham mưu tháng 7 năm 2026\n\n### Đại tướng Nguyễn Tân Cương chủ trì Hội nghị giao ban Bộ Tổng Tham mưu tháng 7 năm 2026",
+                "score": 0.24301806
+              },
+              {
+                "title": "Người gìn giữ ký ức chiến tranh qua những kỷ vật",
+                "url": "https://baotintuc.vn/video/nguoi-gin-giu-ky-uc-chien-tranh-qua-nhung-ky-vat-20260729154506911.htm",
+                "source": "baotintuc.vn",
+                "summary": "Bắt đầu từ một bộ quân hàm được trao tặng, Đại đức Thích Thanh Toàn đã dành gần ba năm sưu tầm hơn 500 kỷ vật của lực lượng quân đội và công an.",
+                "score": 0.038138922
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "template": "sections",
+            "items": [
+              {
+                "url": "https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut",
+                "section": "Thế giới",
+                "title": "Tin tức Thế giới: Ông Trump cảnh báo Iran, Houthi tấn công Ảrập Xêút",
+                "source": "vietnam.vn",
+                "summary": "Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301."
+              },
+              {
+                "url": "https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm",
+                "section": "Thế giới",
+                "summary": "Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD.",
+                "title": "Tin tức thế giới: Iran tấn công lực lượng Mỹ, Apple lập kỷ lục vốn hóa",
+                "source": "tuoitre.vn"
+              },
+              {
+                "section": "Kinh tế - Thị trường",
+                "title": "Giá vàng, tỷ giá và thị trường năng lượng hôm nay",
+                "source": "qdnd.vn",
+                "url": "https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176",
+                "summary": "Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%."
+              }
+            ],
+            "headline": "Tin tức tổng hợp nổi bật"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# Tin tức tổng hợp nổi bật\n\n## Thế giới\n- Tổng thống Mỹ Donald Trump cảnh báo khả năng tái áp dụng biện pháp quân sự cứng rắn với Iran; nhóm Houthi tấn công các cơ sở dầu mỏ của Ảrập Xêút; Việt Nam lên tiếng về việc Mỹ áp mức thuế mới 12,5% theo Mục 301. - [vietnam.vn](https://www.vietnam.vn/tin-tuc-the-gioi-29-7-ong-trump-canh-bao-iran-houthi-tan-cong-arap-xeut)\n- Thủ tướng Israel Benjamin Netanyahu gặp Tổng thống Ukraine Volodymyr Zelensky tại Washington; Iran tấn công căn cứ Mỹ tại Jordan; Mỹ cấm nhập khẩu robot hình người của Trung Quốc; vốn hóa Apple đạt mức kỷ lục 5.000 tỷ USD. - [tuoitre.vn](https://tuoitre.vn/tin-tuc-the-gioi-29-7-iran-bat-ngo-tan-cong-luc-luong-my-nguyen-nhan-vu-no-o-aeon-nhat-ban-100260729060231795.htm)\n\n## Kinh tế - Thị trường\n- Giá vàng trong nước và thế giới cùng giảm; đồng USD giảm nhẹ khi thị trường chờ quyết định của Fed; giá dầu thế giới giảm 5%. - [qdnd.vn](https://www.qdnd.vn/kinh-te/tin-tuc/gia-vang-hom-nay-29-7-vang-trong-nuoc-va-the-gioi-cung-giam-1051176)\n",
+            "item_count": 3
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:57:22",
+      "user": "tin tức hôm nay"
+    }
+  ]
+}

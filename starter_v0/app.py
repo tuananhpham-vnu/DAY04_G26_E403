@@ -161,6 +161,17 @@ details summary span {
     font-weight: 500 !important;
     color: #cbd5e1 !important;
 }
+/* Hide the broken arrow_down / arrow_right material icon */
+details summary [data-testid="stExpanderToggleIcon"],
+details summary .material-symbols-rounded,
+details summary .material-icons,
+details summary svg {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+}
 
 /* ── Selectbox / dropdown ────────────────────────── */
 [data-baseweb="select"] span,
@@ -353,6 +364,14 @@ with tab_chat:
         # Input
         user_input = st.chat_input("Ask the research agent anything …")
 
+        # Footer below chat input
+        st.markdown("""
+        <div style="text-align:center;padding:1rem 0 .3rem;color:#334155;font-size:.72rem;
+                    border-top:1px solid rgba(255,255,255,.04);margin-top:1.5rem">
+            Research Agent · Day 04 Lab v2 · <strong>Group 26 · E403</strong> &nbsp;|&nbsp; Built with Streamlit
+        </div>
+        """, unsafe_allow_html=True)
+
         if user_input:
             st.session_state.messages.append({"role": "user", "content": user_input})
             st.session_state.turn_index += 1
@@ -478,13 +497,11 @@ with tab_chat:
                         targs = ev.get("args", {})
                         tres = ev.get("result", {})
                         is_err = isinstance(tres, dict) and "error" in tres
-                        status_dot = "🔴" if is_err else "🟢"
-
                         args_str = json.dumps(targs, ensure_ascii=False, default=str)
                         if len(args_str) > 100:
                             args_str = args_str[:100] + " …"
 
-                        expander_title = f"{status_dot} {tname} · Round {rn}"
+                        expander_title = f"{tname} · Round {rn}"
                         with st.expander(expander_title, expanded=False):
                             st.markdown(f"**Args:** `{args_str}`")
                             st.markdown("**Result:**")
@@ -627,9 +644,7 @@ with tab_transcripts:
                 for ev in rnd.get("tool_results", []):
                     tname = ev.get("tool", "?")
                     tres = ev.get("result", {})
-                    is_err = isinstance(tres, dict) and "error" in tres
-                    dot = "🔴" if is_err else "🟢"
-                    with st.expander(f"{dot} Tool: **{tname}** (R{rn})"):
+                    with st.expander(f"Tool: **{tname}** (R{rn})"):
                         st.markdown(f"**Args:** `{json.dumps(ev.get('args',{}), ensure_ascii=False, default=str)}`")
                         st.json(tres)
 
@@ -643,12 +658,3 @@ with tab_transcripts:
             st.json(tr)
 
 
-# ═══════════════════════════════════════════════════════════════════════
-#  FOOTER
-# ═══════════════════════════════════════════════════════════════════════
-st.markdown("""
-<div style="text-align:center;padding:1.5rem 0 .5rem;color:#334155;font-size:.72rem;
-            border-top:1px solid rgba(255,255,255,.04);margin-top:2rem">
-    Research Agent · Day 04 Lab v2 · <strong>Group 26 · E403</strong> &nbsp;|&nbsp; Built with Streamlit
-</div>
-""", unsafe_allow_html=True)
