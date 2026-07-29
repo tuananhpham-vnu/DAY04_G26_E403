@@ -9,7 +9,12 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: >
+      Hỏi lại người dùng. Dùng khi THIẾU thông tin bắt buộc để gọi tool khác
+      đúng (chưa rõ là tài khoản nào, chưa có URL, ...) — response_type="text".
+      Dùng khi cần XÁC NHẬN trước một hành động ghi/gửi (post/send/publish)
+      trước khi gọi tool `send` — response_type="yes_no". Dùng response_type="choice"
+      kèm `options` khi có danh sách lựa chọn cụ thể để user chọn.
     parameters:
       type: object
       properties:
@@ -19,41 +24,63 @@ tools:
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: >
+      Lấy các bài đăng (tweet) gần đây của MỘT tài khoản/người cụ thể trên
+      Twitter/X. Dùng khi user hỏi tweet/bài đăng CỦA ai đó (vd "tweet mới nhất
+      của X"). `screenname` là handle Twitter/X thật (không "@", không phải
+      tên đầy đủ) — map tên riêng sang handle quen thuộc khi chắc chắn (vd Sam
+      Altman -> sama, Elon Musk -> elonmusk, Andrej Karpathy -> karpathy).
+      KHÔNG dùng khi user hỏi theo chủ đề (dùng social_search thay vào đó).
     parameters:
       type: object
       properties:
-        screenname: {type: string, default: "", description: "Tên tài khoản"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        screenname: {type: string, default: "", description: "Handle Twitter/X, vd 'sama', 'elonmusk'"}
+        limit: {type: integer, default: 5, description: "Số lượng tweet, lấy đúng số user nêu"}
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: >
+      Tìm tweet/bài đăng theo CHỦ ĐỀ hoặc từ khóa trên Twitter/X (không phải
+      của một người cụ thể). Dùng khi user hỏi "mọi người đang bàn gì về X",
+      "tweet về chủ đề X". `search_type="Top"` khi user muốn bài phổ biến/nổi
+      bật/top nhất; `"Latest"` (mặc định) khi muốn mới nhất hoặc không nói rõ.
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Từ khóa"}
-        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Cách sắp xếp"}
+        query: {type: string, default: "", description: "Từ khóa/chủ đề"}
+        search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Cách sắp xếp: Latest=mới nhất, Top=phổ biến"}
         limit: {type: integer, default: 5, description: "Số lượng"}
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: >
+      Tra cứu/tìm kiếm thông tin trên web nói chung (không phải mạng xã hội).
+      `topic="news"` khi hỏi tin tức/thời sự; `"general"` cho tra cứu kiến
+      thức khác. `timeframe`: "hôm nay" -> day, "tuần này" -> week (mặc định),
+      "tháng này" -> month, "năm nay" -> year. KHÔNG dùng cho câu hỏi về
+      tweet/mạng xã hội (dùng social_search/timeline) hay khi đã có URL cụ
+      thể (dùng fetch). Khi user hỏi kiểu "Tin tức X hôm nay", hãy rút query
+      về một từ khóa ngắn gọn đại diện cho chủ đề chính (ví dụ `AI` thay vì
+      cả câu hỏi nguyên vẹn).
     parameters:
       type: object
       properties:
         query: {type: string, default: "", description: "Truy vấn"}
-        topic: {type: string, enum: [general, news], default: "general", description: "Phân loại"}
-        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian"}
+        topic: {type: string, enum: [general, news], default: "general", description: "general=kiến thức chung, news=tin tức/thời sự"}
+        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian: day=hôm nay, week=tuần này"}
         max_results: {type: integer, default: 5, description: "Số kết quả"}
       required: [query]
 
   - name: fetch
-    description: "Lấy nội dung từ một địa chỉ."
+    description: >
+      Lấy nội dung từ một URL cụ thể mà user đã cung cấp, để đọc/tóm tắt.
+      Chỉ dùng khi tin nhắn có URL rõ ràng. Nếu user nhắc "bài này"/"link
+      này" nhưng KHÔNG có URL, đừng gọi tool này — gọi `clarify` để hỏi URL
+      trước. Nếu có nhiều URL, gọi `fetch` riêng cho từng URL.
     parameters:
       type: object
       properties:
-        url: {type: string, default: "", description: "Địa chỉ"}
+        url: {type: string, default: "", description: "URL cụ thể cần đọc"}
       required: [url]
 
   - name: format
@@ -79,7 +106,11 @@ tools:
 
   # ---------------- Bonus tools ----------------
   - name: send
-    description: "Gửi một đoạn văn bản đi."
+    description: >
+      Gửi (post) một đoạn văn bản ra kênh bên ngoài (vd Telegram). Hành động
+      ghi, không thể hoàn tác — KHÔNG gọi trực tiếp khi user mới yêu cầu
+      "đăng lên..."; phải gọi `clarify` (response_type="yes_no") xin xác
+      nhận trước. Chỉ gọi `send` với `confirmed=true` sau khi user đã đồng ý.
     parameters:
       type: object
       properties:
@@ -88,7 +119,12 @@ tools:
       required: [text]
 
   - name: policy
-    description: "Tìm trong tài liệu nội bộ."
+    description: >
+      Tìm trong tài liệu chính sách nội bộ công ty. Dùng khi user hỏi về quy
+      định nội bộ: trích dẫn nguồn (source_citation), dữ liệu/quyền riêng tư
+      (data_privacy), đăng/gửi ra ngoài (external_publishing), nghiên cứu AI
+      (ai_research), hoặc cách dùng tool (tool_usage). Chọn `policy_area`
+      đúng chủ đề câu hỏi thay vì "all" khi rõ ràng.
     parameters:
       type: object
       properties:
