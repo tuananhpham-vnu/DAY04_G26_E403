@@ -259,9 +259,8 @@ with st.sidebar:
         </div>
     </div>""", unsafe_allow_html=True)
 
-    st.markdown("---")
-
-    provider_name = st.selectbox("🔌 Provider", ["gemini", "openrouter", "openai", "anthropic"], index=0)
+    st.text_input("🔌 Provider", value="gemini", disabled=True)
+    provider_name = "gemini"
     version_label = st.text_input("🏷️ Version", value="v3")
     model_override = st.text_input("🤖 Model (optional)", value="", placeholder="default")
     max_tool_rounds = st.slider("🔄 Max Tool Rounds", 1, 10, 4)
@@ -479,30 +478,16 @@ with tab_chat:
                         targs = ev.get("args", {})
                         tres = ev.get("result", {})
                         is_err = isinstance(tres, dict) and "error" in tres
-                        border_color = "rgba(239,68,68,.4)" if is_err else "rgba(34,197,94,.35)"
                         status_dot = "🔴" if is_err else "🟢"
 
                         args_str = json.dumps(targs, ensure_ascii=False, default=str)
-                        if len(args_str) > 150:
-                            args_str = args_str[:150] + " …"
+                        if len(args_str) > 100:
+                            args_str = args_str[:100] + " …"
 
-                        st.markdown(f"""
-                        <div style="background:rgba(15,23,42,.6);border:1px solid rgba(255,255,255,.05);
-                                    border-left:3px solid {border_color};border-radius:8px;
-                                    padding:.75rem 1rem;margin-bottom:.5rem;margin-left:.6rem">
-                            <div style="display:flex;justify-content:space-between;align-items:center">
-                                <span style="font-weight:700;color:#38bdf8;font-size:.88rem">
-                                    {status_dot} {tname}
-                                </span>
-                                <span style="font-size:.7rem;color:#475569">R{rn}</span>
-                            </div>
-                            <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;
-                                        color:#64748b;margin-top:.3rem;word-break:break-all;line-height:1.45">
-                                {args_str}
-                            </div>
-                        </div>""", unsafe_allow_html=True)
-
-                        with st.expander(f"📄 {tname} result", expanded=False):
+                        expander_title = f"{status_dot} {tname} · Round {rn}"
+                        with st.expander(expander_title, expanded=False):
+                            st.markdown(f"**Args:** `{args_str}`")
+                            st.markdown("**Result:**")
                             st.json(tres)
 
 
