@@ -1,11 +1,9 @@
-"""
-Streamlit UI for the Research Agent — Day 04 Lab v2 — Group 26.
-Reuses `run_model_tool_loop` from `chat.py`.
-"""
 from __future__ import annotations
 
 import json
 import sys
+import threading
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -28,6 +26,40 @@ RUNS_DIR = ROOT / "runs"
 TRANSCRIPTS_DIR = ROOT / "transcripts"
 load_lab_env(ROOT)
 
+try:
+    from streamlit.runtime.scriptrunner import get_script_run_ctx
+except ImportError:
+    try:
+        from streamlit.scriptrunner import get_script_run_ctx
+    except ImportError:
+        get_script_run_ctx = lambda: None
+
+MAX_CONCURRENT_USERS = 8
+
+if "_GLOBAL_ACTIVE_SESSIONS" not in globals():
+    _GLOBAL_ACTIVE_SESSIONS: dict[str, float] = {}
+    _GLOBAL_SESSIONS_LOCK = threading.Lock()
+
+def check_and_register_session(max_users: int = 8) -> int:
+    ctx = get_script_run_ctx()
+    session_id = ctx.session_id if ctx else str(id(st.session_state))
+    now = time.time()
+    
+    with _GLOBAL_SESSIONS_LOCK:
+        # Clean up sessions inactive for more than 5 minutes (300 seconds)
+        stale_sids = [sid for sid, last_seen in _GLOBAL_ACTIVE_SESSIONS.items() if now - last_seen > 300]
+        for sid in stale_sids:
+            del _GLOBAL_ACTIVE_SESSIONS[sid]
+            
+        if session_id not in _GLOBAL_ACTIVE_SESSIONS:
+            if len(_GLOBAL_ACTIVE_SESSIONS) >= max_users:
+                st.error(f"⛔ **Hệ thống đã đạt giới hạn tối đa {max_users} người dùng truy cập cùng lúc.**")
+                st.info(f"👥 Đang có {len(_GLOBAL_ACTIVE_SESSIONS)}/{max_users} phiên làm việc. Vui lòng quay lại sau ít phút.")
+                st.stop()
+        
+        _GLOBAL_ACTIVE_SESSIONS[session_id] = now
+        return len(_GLOBAL_ACTIVE_SESSIONS)
+
 # ═══════════════════════════════════════════════════════════════════════
 #  PAGE CONFIG
 # ═══════════════════════════════════════════════════════════════════════
@@ -37,6 +69,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+current_active_users = check_and_register_session(MAX_CONCURRENT_USERS)
+
+
 
 # ═══════════════════════════════════════════════════════════════════════
 #  GLOBAL CSS
@@ -207,7 +243,7 @@ def _metric_html(value: str, label: str, icon: str = "") -> str:
 # ═══════════════════════════════════════════════════════════════════════
 with st.sidebar:
     # Logo / title
-    st.markdown("""
+    st.markdown(f"""
     <div style="text-align:center;padding:.6rem 0 1.2rem">
         <div style="font-size:2.2rem;margin-bottom:.15rem">🧪</div>
         <div style="font-size:1.1rem;font-weight:800;
@@ -215,8 +251,11 @@ with st.sidebar:
                     -webkit-background-clip:text;-webkit-text-fill-color:transparent">
             Research Agent
         </div>
-        <div style="font-size:.72rem;color:#64748b;font-weight:500;margin-top:.1rem">
+        <div style="font-size:.72rem;color:#64748b;font-weight:500;margin-top:.1rem;margin-bottom:.5rem">
             Group 26 · E403
+        </div>
+        <div>
+            {_badge(f"👥 Active: {current_active_users}/{MAX_CONCURRENT_USERS}", "teal")}
         </div>
     </div>""", unsafe_allow_html=True)
 
