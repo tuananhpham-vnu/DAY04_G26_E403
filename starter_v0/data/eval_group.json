@@ -1,7 +1,228 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "Bộ eval do nhóm tự viết: 5 case single-turn và 5 case multi-turn để kiểm tra routing, trích xuất tham số, ranh giới hành động, và tool source_check của nhóm.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_source_check_urls",
+      "phase": "B",
+      "suite": "group",
+      "query": "Kiểm tra nhanh 2 nguồn này có ổn để trích dẫn không: https://openai.com/research và https://medium.com/example/ai-notes",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_check",
+            "args": {
+              "sources": ["https://openai.com/research", "https://medium.com/example/ai-notes"]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Khi người dùng đưa URL và hỏi về độ tin cậy/trích dẫn, agent phải route sang tool source_check của nhóm."
+      }
+    },
+    {
+      "id": "G02_fetch_specific_url",
+      "phase": "B",
+      "suite": "group",
+      "query": "Đọc và tóm tắt link này: https://example.com/ai-policy",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://example.com/ai-policy"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Khi có URL cụ thể, agent phải dùng fetch, không dùng lookup hoặc source_check."
+      }
+    },
+    {
+      "id": "G03_web_news_month",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tin về AI agents trong tháng này có gì mới?",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI agents",
+              "topic": "news",
+              "timeframe": "month"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Yêu cầu tin tức hiện tại phải map sang lookup với topic=news và timeframe=month."
+      }
+    },
+    {
+      "id": "G04_missing_account",
+      "phase": "B",
+      "suite": "group",
+      "query": "Lấy 3 bài đăng mới nhất của tài khoản đó giúp mình",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Khi người dùng nhắc tài khoản mơ hồ, agent phải hỏi lại thay vì đoán handle."
+      }
+    },
+    {
+      "id": "G05_confirm_publish",
+      "phase": "B",
+      "suite": "group",
+      "query": "Gửi bản tóm tắt này lên Telegram cho nhóm: AI đang tăng trưởng rất nhanh",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Hành động ghi/gửi ra ngoài phải hỏi xác nhận yes/no trước khi gửi."
+      }
+    },
+    {
+      "id": "G06_multiturn_source_check",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Mình có 2 nguồn cần đánh giá cho claim về GPT-5."},
+        {"role": "user", "content": "Nguồn là https://openai.com/research và https://reddit.com/r/artificial/post/123"},
+        {"role": "user", "content": "Hãy kiểm tra chất lượng nguồn cho mục đích research"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_check",
+            "args": {
+              "sources": ["https://openai.com/research", "https://reddit.com/r/artificial/post/123"],
+              "purpose": "research"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Agent phải giữ URL từ các lượt trước và route sang source_check."
+      }
+    },
+    {
+      "id": "G07_multiturn_limit_correction",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Lấy 8 tweet mới nhất của Sam Altman"},
+        {"role": "user", "content": "Thôi lấy 4 tweet thôi"},
+        {"role": "user", "content": "Vẫn của Sam Altman nhé"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama",
+              "limit": 4
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Lượt mới nhất sửa limit, nhưng vẫn phải giữ mapping Sam Altman -> sama."
+      }
+    },
+    {
+      "id": "G08_multiturn_missing_url_then_url",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tóm tắt bài viết này giúp mình"},
+        {"role": "user", "content": "Đây là link: https://example.com/research-agent-eval"},
+        {"role": "user", "content": "Chỉ đọc đúng link đó"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://example.com/research-agent-eval"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Sau khi URL thiếu được bổ sung ở context, agent phải fetch đúng URL đó."
+      }
+    },
+    {
+      "id": "G09_multiturn_switch_social_to_web",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm mọi người nói gì về Claude trên Twitter"},
+        {"role": "user", "content": "Đổi ý, tìm trên web thôi"},
+        {"role": "user", "content": "Vẫn chủ đề Claude và là tin trong tuần này"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "Claude",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Lệnh mới nhất chuyển từ social search sang web news lookup, đồng thời giữ chủ đề và timeframe."
+      }
+    },
+    {
+      "id": "G10_multiturn_out_of_scope",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Bạn có thể giúp research tin AI không?"},
+        {"role": "user", "content": "Vậy viết hộ mình một hàm JavaScript sắp xếp bubble sort"},
+        {"role": "user", "content": "Chỉ cần code thôi, không cần tìm tin"}
+      ],
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "metadata": {
+        "what_it_tests": "Yêu cầu viết code nằm ngoài phạm vi research nên không được gọi tool."
+      }
+    }
+  ]
 }
