@@ -156,21 +156,24 @@ button[data-baseweb="tab"][aria-selected="true"] {
 }
 
 /* ── Expander ────────────────────────────────────── */
-details summary span {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 500 !important;
-    color: #cbd5e1 !important;
-}
-/* Hide the broken arrow_down / arrow_right material icon */
 details summary [data-testid="stExpanderToggleIcon"],
+details summary [data-testid="stExpanderToggleIcon"] *,
 details summary .material-symbols-rounded,
 details summary .material-icons,
 details summary svg {
     display: none !important;
+    font-size: 0 !important;
     width: 0 !important;
     height: 0 !important;
-    overflow: hidden !important;
-    font-size: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+details summary [data-testid="stMarkdownContainer"] p,
+details summary [data-testid="stMarkdownContainer"] span {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    color: #cbd5e1 !important;
 }
 
 /* ── Selectbox / dropdown ────────────────────────── */
@@ -304,7 +307,7 @@ with st.sidebar:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    if st.button("🗑️ Clear Chat", use_container_width=True, type="secondary"):
+    if st.button("🔄 Refresh / Clear Chat", use_container_width=True, type="secondary"):
         for k in ("messages", "tool_traces", "transcript", "turn_index"):
             st.session_state.pop(k, None)
         st.rerun()
@@ -355,6 +358,13 @@ with tab_chat:
 
     # ── Chat column ──
     with col_chat:
+        chat_hdr_col1, chat_hdr_col2 = st.columns([3, 1])
+        with chat_hdr_col2:
+            if st.button("🔄 Refresh Chat", key="btn_refresh_chat", use_container_width=True, type="secondary"):
+                for k in ("messages", "tool_traces", "transcript", "turn_index"):
+                    st.session_state.pop(k, None)
+                st.rerun()
+
         # Render history using native chat elements
         for msg in st.session_state.messages:
             avatar = "👤" if msg["role"] == "user" else "🤖"
