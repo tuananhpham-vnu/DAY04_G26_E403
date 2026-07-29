@@ -1,0 +1,284 @@
+{
+  "transcript_id": "v3_gemini_20260729T165433351628",
+  "version": "v3",
+  "artifact_version": "v3+p5c86c5095b6d+t071c651c00d9",
+  "prompt_hash": "5c86c5095b6d5d2ca8d9f1fdca7c9ae18966cbd04525904a3f9e1939e9eb5162",
+  "tools_hash": "071c651c00d98cd28911c33cfff748395f74ba1dc68fac7e85bd24eb92e2f583",
+  "provider": "gemini",
+  "model": null,
+  "system_prompt": "D:\\labAI_vinuni\\Buoi4\\DAY04_G26_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\labAI_vinuni\\Buoi4\\DAY04_G26_E403\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T16:54:33",
+  "updated_at": "2026-07-29T16:54:33",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T16:54:33",
+      "status": "answered",
+      "assistant_text": "# Tin tức nổi bật về Việt Nam\n\n## Kinh tế & Thương mại\n- Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực. - [vietnam-briefing.com](https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html)\n\n## Doanh nghiệp lớn\n- Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot. - [abcnews.com](https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833)\n\n## Năng lượng & Hàng không\n- Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng. - [ethanolproducer.com](https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel)\n\n## Quan hệ quốc tế\n- Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế. - [scmp.com](https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos)",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "topic": "news",
+                "timeframe": "day",
+                "query": "Vietnam"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "topic": "news",
+                "timeframe": "day",
+                "query": "Vietnam"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Vietnam",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Vietnam E-Commerce Sector Outlook: Key Growth Trends",
+                    "url": "https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html",
+                    "source": "vietnam-briefing.com",
+                    "summary": "Vietnam Briefing is one of five regional publications under the Asia Briefing brand. It is supported by Dezan Shira & Associates, a pan-Asia, multi-disciplinary professional services firm that assists foreign investors throughout Asia, including through offices in Hanoi, Ho Chi Minh City, and Da Nang in Vietnam. Dezan Shira & Associates also maintains offices or has alliance partners assisting foreign investors in China, Hong Kong SAR, Indonesia, Singapore, Malaysia, Mongolia, Dubai [...] With a young population, rising disposable incomes, and a rapidly expanding middle class, Vietnam continues to stand out as one of Southeast Asia’s most attractive destinations for e-commerce investment. Its growing role as a regional e-commerce export hub further strengthens the country’s long-term outlook, positioning Vietnam as a market to watch in 2026 and beyond. [...] Vietnam is also emerging as a regional hub for cross-border e-commerce, supported by its competitive manufacturing base, digital transformation, and export-oriented economy. At the Amazon Global Selling Conference 2025, Amazon identified Vietnam as one of its fastest-growing sourcing markets, citing strong growth in Vietnamese product listings and brand-registered sellers.",
+                    "score": 0.50476116
+                  },
+                  {
+                    "title": "Vietnam's biggest company, Vingroup, expands overseas ...",
+                    "url": "https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833",
+                    "source": "abcnews.com",
+                    "summary": "In Uzbekistan, Vingroup signed an agreement in December to build a “Vietnam Town” in its capital, the ancient Silk Road city of Tashkent. In Central Asia’s largest metropolis, it envisions a development modeled on its signature projects in Vietnam, combining homes, shopping centers, schools, hospitals and EV charging stations.\n\nOther projects include tourism ventures like a zoo in India and smart-city projects in Africa to plans to develop motors and moving parts needed for robots in Germany. [...] Like China before it, Vietnam wants to build globally competitive companies now that the export-led model that has lifted the country out of poverty is, in the words of Communist Party General Secretary To Lam, under “unprecedented strain.” [...] Vietnam stepped up its expansion into other global markets after tariffs imposed by U.S. President Donald Trump exposed the risks of relying too heavily on a handful of export destinations. The U.S. accounts for over 30% of Vietnam's exports.\n\nCentral Asia has become one focus. Trade with Uzbekistan reached $202 million in 2024, up 26.5% from a year earlier, while Vietnam elevated ties with Kazakhstan to a strategic partnership in 2025.",
+                    "score": 0.39747116
+                  },
+                  {
+                    "title": "Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel | Ethanol Producer Magazine",
+                    "url": "https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel",
+                    "source": "ethanolproducer.com",
+                    "summary": "SECTIONS\n\nLOG IN\n\n## Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel\n\nStaff based in the USGBC regional office in Southeast Asia & Oceania (SEA&O) recently traveled to Da Nang, Vietnam to attend the Asia Sustainable Aviation Fuel Association's Innovation & Policy Summit. / SOURCE: USGBC\n\nMay 19, 2026\n\nBY U.S. Grains & BioProducts Council\n\nAdvertisement\n\nAdvertisement\n\n## Related Stories\n\n## Past, Present and Future\n\nArticle image\n\nBy Ethanol Producer Magazine [...] Now in its 20th year, the International Biomass Conference & Expo is expected to bring together more than 1000 attendees, 180 exhibitors and 100 speakers from more than 25 countries. It is the largest gathering of biomass professionals and academics in the world. The conference provides relevant content and unparalleled networking opportunities in a dynamic business-to-business environment. In addition to abundant networking opportunities, the largest biomass conference in the world is renowned [...] The North American Biocarbon Conference, co-located with the International Biomass Conference & Expo, brings together the full value chain of carbon-negative and carbon-smart technologies in one powerful, integrated event. By aligning biocarbon producers, biomass power generators, biochar innovators, carbon-removal buyers, project developers, and equipment providers with the broader biomass, biogas, CHP, pellet, and renewable-power industries, this co-located experience creates unmatched",
+                    "score": 0.25278085
+                  },
+                  {
+                    "title": "Vietnam to host US aircraft carrier despite Trump’s tariffs, Iran war chaos",
+                    "url": "https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos",
+                    "source": "scmp.com",
+                    "summary": "A 79-year-old veteran of war with America sees the carrier's visit as proof of how far relations have come.",
+                    "score": 0.17125545
+                  },
+                  {
+                    "title": "Father Ho’s journey of faith from Vietnam to Cleveland | Catholic Diocese of Cleveland",
+                    "url": "https://www.dioceseofcleveland.org/join-the-faith/inspiring-stories/father-hos-journey-of-faith-from-vietnam-to-cleveland",
+                    "source": "dioceseofcleveland.org",
+                    "summary": "Growing up in Vietnam, Father Ho said he always felt called to the priesthood. However, the Vietnamese government regulates the number of priests permitted in the communist country. [...] How long does it take you to get to Mass? For many it’s likely just a few minutes. But for the family of Father Truong “Joseph” Viet Ho, the 8,500-mile trip to his first Mass as a priest took more than 24 hours of travel.\n\nFather Ho was among the six new priests Bishop Edward Malesic ordained on May 16 for service to the Catholic Diocese of Cleveland. [...] Skip to footer",
+                    "score": 0.16766824
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "items": [
+                  {
+                    "source": "vietnam-briefing.com",
+                    "section": "Kinh tế & Thương mại",
+                    "summary": "Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực.",
+                    "title": "Vietnam E-Commerce Sector Outlook: Key Growth Trends",
+                    "url": "https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html"
+                  },
+                  {
+                    "url": "https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833",
+                    "section": "Doanh nghiệp lớn",
+                    "source": "abcnews.com",
+                    "summary": "Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot.",
+                    "title": "Vietnam's biggest company, Vingroup, expands overseas ..."
+                  },
+                  {
+                    "summary": "Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng.",
+                    "source": "ethanolproducer.com",
+                    "section": "Năng lượng & Hàng không",
+                    "url": "https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel",
+                    "title": "Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel | Ethanol Producer Magazine"
+                  },
+                  {
+                    "title": "Vietnam to host US aircraft carrier despite Trump’s tariffs, Iran war chaos",
+                    "summary": "Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế.",
+                    "source": "scmp.com",
+                    "section": "Quan hệ quốc tế",
+                    "url": "https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos"
+                  }
+                ],
+                "template": "sections",
+                "headline": "Tin tức nổi bật về Việt Nam"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "items": [
+                  {
+                    "source": "vietnam-briefing.com",
+                    "section": "Kinh tế & Thương mại",
+                    "summary": "Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực.",
+                    "title": "Vietnam E-Commerce Sector Outlook: Key Growth Trends",
+                    "url": "https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html"
+                  },
+                  {
+                    "url": "https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833",
+                    "section": "Doanh nghiệp lớn",
+                    "source": "abcnews.com",
+                    "summary": "Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot.",
+                    "title": "Vietnam's biggest company, Vingroup, expands overseas ..."
+                  },
+                  {
+                    "summary": "Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng.",
+                    "source": "ethanolproducer.com",
+                    "section": "Năng lượng & Hàng không",
+                    "url": "https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel",
+                    "title": "Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel | Ethanol Producer Magazine"
+                  },
+                  {
+                    "title": "Vietnam to host US aircraft carrier despite Trump’s tariffs, Iran war chaos",
+                    "summary": "Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế.",
+                    "source": "scmp.com",
+                    "section": "Quan hệ quốc tế",
+                    "url": "https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos"
+                  }
+                ],
+                "template": "sections",
+                "headline": "Tin tức nổi bật về Việt Nam"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "# Tin tức nổi bật về Việt Nam\n\n## Kinh tế & Thương mại\n- Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực. - [vietnam-briefing.com](https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html)\n\n## Doanh nghiệp lớn\n- Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot. - [abcnews.com](https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833)\n\n## Năng lượng & Hàng không\n- Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng. - [ethanolproducer.com](https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel)\n\n## Quan hệ quốc tế\n- Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế. - [scmp.com](https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos)\n",
+                "item_count": 4
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "# Tin tức nổi bật về Việt Nam\n\n## Kinh tế & Thương mại\n- Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực. - [vietnam-briefing.com](https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html)\n\n## Doanh nghiệp lớn\n- Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot. - [abcnews.com](https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833)\n\n## Năng lượng & Hàng không\n- Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng. - [ethanolproducer.com](https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel)\n\n## Quan hệ quốc tế\n- Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế. - [scmp.com](https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos)",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "topic": "news",
+            "timeframe": "day",
+            "query": "Vietnam"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Vietnam",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Vietnam E-Commerce Sector Outlook: Key Growth Trends",
+                "url": "https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html",
+                "source": "vietnam-briefing.com",
+                "summary": "Vietnam Briefing is one of five regional publications under the Asia Briefing brand. It is supported by Dezan Shira & Associates, a pan-Asia, multi-disciplinary professional services firm that assists foreign investors throughout Asia, including through offices in Hanoi, Ho Chi Minh City, and Da Nang in Vietnam. Dezan Shira & Associates also maintains offices or has alliance partners assisting foreign investors in China, Hong Kong SAR, Indonesia, Singapore, Malaysia, Mongolia, Dubai [...] With a young population, rising disposable incomes, and a rapidly expanding middle class, Vietnam continues to stand out as one of Southeast Asia’s most attractive destinations for e-commerce investment. Its growing role as a regional e-commerce export hub further strengthens the country’s long-term outlook, positioning Vietnam as a market to watch in 2026 and beyond. [...] Vietnam is also emerging as a regional hub for cross-border e-commerce, supported by its competitive manufacturing base, digital transformation, and export-oriented economy. At the Amazon Global Selling Conference 2025, Amazon identified Vietnam as one of its fastest-growing sourcing markets, citing strong growth in Vietnamese product listings and brand-registered sellers.",
+                "score": 0.50476116
+              },
+              {
+                "title": "Vietnam's biggest company, Vingroup, expands overseas ...",
+                "url": "https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833",
+                "source": "abcnews.com",
+                "summary": "In Uzbekistan, Vingroup signed an agreement in December to build a “Vietnam Town” in its capital, the ancient Silk Road city of Tashkent. In Central Asia’s largest metropolis, it envisions a development modeled on its signature projects in Vietnam, combining homes, shopping centers, schools, hospitals and EV charging stations.\n\nOther projects include tourism ventures like a zoo in India and smart-city projects in Africa to plans to develop motors and moving parts needed for robots in Germany. [...] Like China before it, Vietnam wants to build globally competitive companies now that the export-led model that has lifted the country out of poverty is, in the words of Communist Party General Secretary To Lam, under “unprecedented strain.” [...] Vietnam stepped up its expansion into other global markets after tariffs imposed by U.S. President Donald Trump exposed the risks of relying too heavily on a handful of export destinations. The U.S. accounts for over 30% of Vietnam's exports.\n\nCentral Asia has become one focus. Trade with Uzbekistan reached $202 million in 2024, up 26.5% from a year earlier, while Vietnam elevated ties with Kazakhstan to a strategic partnership in 2025.",
+                "score": 0.39747116
+              },
+              {
+                "title": "Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel | Ethanol Producer Magazine",
+                "url": "https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel",
+                "source": "ethanolproducer.com",
+                "summary": "SECTIONS\n\nLOG IN\n\n## Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel\n\nStaff based in the USGBC regional office in Southeast Asia & Oceania (SEA&O) recently traveled to Da Nang, Vietnam to attend the Asia Sustainable Aviation Fuel Association's Innovation & Policy Summit. / SOURCE: USGBC\n\nMay 19, 2026\n\nBY U.S. Grains & BioProducts Council\n\nAdvertisement\n\nAdvertisement\n\n## Related Stories\n\n## Past, Present and Future\n\nArticle image\n\nBy Ethanol Producer Magazine [...] Now in its 20th year, the International Biomass Conference & Expo is expected to bring together more than 1000 attendees, 180 exhibitors and 100 speakers from more than 25 countries. It is the largest gathering of biomass professionals and academics in the world. The conference provides relevant content and unparalleled networking opportunities in a dynamic business-to-business environment. In addition to abundant networking opportunities, the largest biomass conference in the world is renowned [...] The North American Biocarbon Conference, co-located with the International Biomass Conference & Expo, brings together the full value chain of carbon-negative and carbon-smart technologies in one powerful, integrated event. By aligning biocarbon producers, biomass power generators, biochar innovators, carbon-removal buyers, project developers, and equipment providers with the broader biomass, biogas, CHP, pellet, and renewable-power industries, this co-located experience creates unmatched",
+                "score": 0.25278085
+              },
+              {
+                "title": "Vietnam to host US aircraft carrier despite Trump’s tariffs, Iran war chaos",
+                "url": "https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos",
+                "source": "scmp.com",
+                "summary": "A 79-year-old veteran of war with America sees the carrier's visit as proof of how far relations have come.",
+                "score": 0.17125545
+              },
+              {
+                "title": "Father Ho’s journey of faith from Vietnam to Cleveland | Catholic Diocese of Cleveland",
+                "url": "https://www.dioceseofcleveland.org/join-the-faith/inspiring-stories/father-hos-journey-of-faith-from-vietnam-to-cleveland",
+                "source": "dioceseofcleveland.org",
+                "summary": "Growing up in Vietnam, Father Ho said he always felt called to the priesthood. However, the Vietnamese government regulates the number of priests permitted in the communist country. [...] How long does it take you to get to Mass? For many it’s likely just a few minutes. But for the family of Father Truong “Joseph” Viet Ho, the 8,500-mile trip to his first Mass as a priest took more than 24 hours of travel.\n\nFather Ho was among the six new priests Bishop Edward Malesic ordained on May 16 for service to the Catholic Diocese of Cleveland. [...] Skip to footer",
+                "score": 0.16766824
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "source": "vietnam-briefing.com",
+                "section": "Kinh tế & Thương mại",
+                "summary": "Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực.",
+                "title": "Vietnam E-Commerce Sector Outlook: Key Growth Trends",
+                "url": "https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html"
+              },
+              {
+                "url": "https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833",
+                "section": "Doanh nghiệp lớn",
+                "source": "abcnews.com",
+                "summary": "Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot.",
+                "title": "Vietnam's biggest company, Vingroup, expands overseas ..."
+              },
+              {
+                "summary": "Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng.",
+                "source": "ethanolproducer.com",
+                "section": "Năng lượng & Hàng không",
+                "url": "https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel",
+                "title": "Vietnam: USGBC discusses ethanol’s capability as an alternative aviation fuel | Ethanol Producer Magazine"
+              },
+              {
+                "title": "Vietnam to host US aircraft carrier despite Trump’s tariffs, Iran war chaos",
+                "summary": "Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế.",
+                "source": "scmp.com",
+                "section": "Quan hệ quốc tế",
+                "url": "https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos"
+              }
+            ],
+            "template": "sections",
+            "headline": "Tin tức nổi bật về Việt Nam"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# Tin tức nổi bật về Việt Nam\n\n## Kinh tế & Thương mại\n- Ngành thương mại điện tử Việt Nam tiếp tục phát triển mạnh mẽ, thu hút đầu tư nước ngoài nhờ dân số trẻ, thu nhập tăng và vai trò trung tâm xuất khẩu thương mại điện tử xuyên biên giới trong khu vực. - [vietnam-briefing.com](https://www.vietnam-briefing.com/news/vietnam-e-commerce-sector-2026.html)\n\n## Doanh nghiệp lớn\n- Vingroup đang đẩy mạnh chiến lược mở rộng quốc tế, bao gồm thỏa thuận xây dựng “Vietnam Town” tại Tashkent (Uzbekistan), cùng các dự án phát triển đô thị thông minh và linh kiện robot. - [abcnews.com](https://abcnews.com/Business/wireStory/vietnams-biggest-company-vingroup-expands-overseas-home-market-135178833)\n\n## Năng lượng & Hàng không\n- Hội đồng Ngũ cốc & Sản phẩm Sinh học Hoa Kỳ (USGBC) thảo luận về tiềm năng của ethanol làm nhiên liệu hàng không thay thế tại hội nghị ở Đà Nẵng. - [ethanolproducer.com](https://ethanolproducer.com/articles/vietnam-usgbc-discusses-ethanols-capability-as-an-alternative-aviation-fuel)\n\n## Quan hệ quốc tế\n- Việt Nam chuẩn bị đón tàu sân bay Mỹ thăm cảng, cho thấy sự phát triển tích cực trong quan hệ song phương bất chấp những biến động thương mại và quốc tế. - [scmp.com](https://www.scmp.com/week-asia/politics/article/3362219/vietnam-host-us-aircraft-carrier-despite-trumps-tariffs-iran-war-chaos)\n",
+            "item_count": 4
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T16:54:33",
+      "user": "tin tức hôm nay"
+    }
+  ]
+}
