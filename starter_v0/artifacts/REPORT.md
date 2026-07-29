@@ -3,9 +3,19 @@
 ## Nhóm
 
 - Nhóm: Group 26
-- Thành viên: cập nhật trước khi nộp
-- Nhà cung cấp/mô hình: Gemini, `gemini-3.5-flash-lite`
+- Thành viên:
 
+| STT | Họ và tên | MSSV |
+| :---: | :--- | :---: |
+| 1 | Phạm Tuấn Anh | 2A202601070 |
+| 2 | Mai Tiến Dũng | 2A202601838 |
+| 3 | Nguyễn Thị Thương | 2A202601226 |
+| 4 | Nguyễn Đức Anh | 2A202601788 |
+| 5 | Nguyễn Hoàng Minh | 2A202601764 |
+| 6 | Nguyễn Thái Tú | 2A202601504 |
+- Nhà cung cấp/mô hình: Gemini, `gemini-3.5-flash-lite`
+![alt text](image.png) 
+link streamlit : https://ai-research-agent-g26.streamlit.app/
 ---
 
 # PHẦN A - Giới thiệu tác tử
